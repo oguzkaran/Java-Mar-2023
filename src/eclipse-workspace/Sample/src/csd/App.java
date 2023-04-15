@@ -1,42 +1,20 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Bir Java programı genel olarak paketlerden (packages), paketler sınıflardan (classes), sınıflar da metotlardan (methods)
-	oluşur. paket bildiriminin genel biçimi:
-	
-		package <paket isim>;
-	Örneğin:
-		package csd;
-	
-	Paketler konusuna kadar yalnızca csd paketi altında çalışacağız. Paketler konusu ileride dataylı olarak ele alınacaktır.
-	
-	Sınıf bildiriminin (bazı detaylar hariç) genel biçimi:
-		class <sınıf ismi> {
-			//...
-		}
-	Örneğin: 
-		class Sample {
-			//...
-		}
-	
-	Sınıf nesne yönelimli programlama tekniğinin temel taşlarından biridir. Kurs süresince sınıflar çeşitli konu başlıkları
-	altında detaylı olarak ele alınacaktır
-	
-	Java'da alt programlara "metot (method)" denir. 
+	Aşağıdaki örneği çalıştırarak yuvarlama hatalarını gözlemleyiniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args) 
 	{		
-        System.out.println("Hello, World");        
+		double a = 0.1, b = 0.2;
+		double c;
+		
+		c = a + b;
+		
+		System.out.printf("a = %.20f%n", a);
+		System.out.printf("b = %.20f%n", b);
+		System.out.printf("c = %.20f%n", c);
+		
     }
 }
-
-class Sample {
-	//...
-}
-
-class Test {
-	//...
-}
-
 
