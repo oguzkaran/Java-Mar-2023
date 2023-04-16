@@ -1,20 +1,29 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Java'da değişken isimlendirmede $ karakteri kullanılabilir. Hatta isimler $ karakteri ile başlatılabilir. $ karakteri
-	tek başına değişken ismi olabilir. Ancak programcı $ karakterini isimlendirmede kullanmamalıdır. 
+	Akış return deyimine geldiğinde, return deyimine ilişkin ifade önce hesaplanır, elde edilen değere geri dönülür 	  
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
+
 
 class App {
 	public static void main(String [] args) 
 	{
-		int amountOf$s = 1000;
-		int $ = 10;
-		double $1234 = 3.4;
+		int result;
 		
+		result = Util.add() * 2;
 		
-		System.out.println(amountOf$s);
-		System.out.println($);
-		System.out.println($1234);		
+		System.out.println(result);		
 	}
 }
 
+class Util {
+	public static int add()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		System.out.print("İki sayı giriniz:");
+		int a = kb.nextInt();
+		int b = kb.nextInt();		
+		
+		return a + b;		
+	}
+}
