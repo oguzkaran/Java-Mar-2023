@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	System.out.format metodu da System.out.printf ile tamamen aynı işi yapar
+	Math sınıfının trigonometrik işlem yapan metotları radyan ölçü birimi ile işlem yaparlar
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
@@ -7,15 +7,10 @@ class App {
 	public static void main(String [] args) 
 	{		
 		java.util.Scanner kb = new java.util.Scanner(System.in);
-		System.out.print("Bir tamsayı giriniz:");
-		int a = Integer.parseInt(kb.nextLine());
+		System.out.print("Bir sayı giriniz:");
+		double val = kb.nextDouble();
 		
-		System.out.print("Bir gerçek sayı giriniz:");
-		double b = Double.parseDouble(kb.nextLine());
-		
-		System.out.format("a = %d, b = %f%n", a, b);		
-		System.out.println("Tekrar yapıyor musunuz?");
+		System.out.printf("sin(%f) = %f%n", val, Math.sin(Math.toRadians(val)));	
 	}
 }
-
 
