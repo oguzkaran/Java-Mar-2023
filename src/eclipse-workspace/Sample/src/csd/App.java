@@ -1,16 +1,16 @@
-/*----------------------------------------------------------------------------------------------------------------------
-	Math sınıfının trigonometrik işlem yapan metotları radyan ölçü birimi ile işlem yaparlar
+/*----------------------------------------------------------------------------------------------------------------------	 
+	 Gerçek sayı sabitinin noktadan tam kısmı sıfır ise sıfır yazılmayabilir, ondalık kısmı sıfır ise yazılmayabilir.
+	 0.0 sabitinin yalnızca nokta olarak yazıolması geçersizdir	
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
-	public static void main(String [] args) 
-	{		
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		System.out.print("Bir sayı giriniz:");
-		double val = kb.nextDouble();
+	public static void main(String [] args)
+	{
+		double a = 1.; //1.0
+		double b = .1; //0.1
 		
-		System.out.printf("sin(%f) = %f%n", val, Math.sin(Math.toRadians(val)));	
+		System.out.printf("a = %f, b = %f%n", a, b);
 	}
 }
 
