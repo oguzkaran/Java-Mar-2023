@@ -1,35 +1,44 @@
 /*----------------------------------------------------------------------------------------------------------------------	 
-	Sınıf Çalışması: Parametresi ile aldığı bir sayının faktoriyel değerine geri döne factorial isimli metodu NumberUtil sınıfı
-	içerisinde yazınız ve aşağıdaki kod ile test ediniz
-	Açıklamalar:
-		- Faktoriyel işlemi 
-		0! = 1
-		1! = 1
-		2! = 1 * 2
-		...
-		n!= 1 * 2 * ... * n - 1 * n
-		- Metot negatif sayılar için 1 değerine geri dönecektir
+	break deyimi:
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{			
-		FactorialTest.run();
+		PowTest.run();
 	}
 }
 
-class FactorialTest {
+class PowTest {
 	public static void run()
 	{
-		for (int n = 0; n <= 13; ++n)		
-		System.out.printf("%d! = %d%n", n, NumberUtil.factorial(n));
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Tabanı giriniz:");
+			int a = Integer.parseInt(kb.nextLine());
+			
+			System.out.print("Üssü giriniz:");
+			int b = Integer.parseInt(kb.nextLine());
+			
+			System.out.printf("pow(%d, %d) = %d%n", a, b, NumberUtil.pow(a, b));
+			
+			if (b <= 0)
+				break;			
+		}		
+		
+		System.out.println("Tekrar yapıyor musunuz?");
 	}
 }
 class NumberUtil {
-	public static int factorial(int n)
+	public static int pow(int a, int b)
 	{
-		//TODO:
+		int result = 1;
+		
+		while (b-- > 0)
+			result *= a;
+		
+		return result;
 	}
 }
-
