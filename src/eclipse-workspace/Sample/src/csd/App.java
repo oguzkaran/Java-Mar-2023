@@ -1,25 +1,35 @@
 /*----------------------------------------------------------------------------------------------------------------------	 
-	Döngü değişkeninin döngüden sonraki değeri kullanılmayacaksa, 1.kısımda bildirilmesi daha iyi bir tekniktir. Bu durumda
-	kodu okuyan kişi döngü değişkeninin döngüden önce bildirildiğini görürse, bu değişkenin son değerinin döngüden sonra da
-	kullanıldığını algılar. Bu da kodun okunabilirliğini artırır
+	Sınıf Çalışması: Parametresi ile aldığı bir sayının faktoriyel değerine geri döne factorial isimli metodu NumberUtil sınıfı
+	içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	Açıklamalar:
+		- Faktoriyel işlemi 
+		0! = 1
+		1! = 1
+		2! = 1 * 2
+		...
+		n!= 1 * 2 * ... * n - 1 * n
+		- Metot negatif sayılar için 1 değerine geri dönecektir
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{		
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
-		System.out.print("Bir sayı giriniz:");
-		int n = kb.nextInt();		
-		
-		int i;
-		
-		for (i = 0; i < n; ++i)
-			System.out.printf("%d ", i);
-		
-		System.out.printf("Döngüden sonra i = %d%n", i);		
-		System.out.println("\nTekrar yapıyor musunuz?");		
+	{			
+		FactorialTest.run();
+	}
+}
+
+class FactorialTest {
+	public static void run()
+	{
+		for (int n = 0; n <= 13; ++n)		
+		System.out.printf("%d! = %d%n", n, NumberUtil.factorial(n));
+	}
+}
+class NumberUtil {
+	public static int factorial(int n)
+	{
+		//TODO:
 	}
 }
 
