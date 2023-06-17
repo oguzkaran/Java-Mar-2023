@@ -1,25 +1,17 @@
-/*----------------------------------------------------------------------------------------------------------------------	 
-	Tür Dönüştürme Operatörü (Type Cast Operator):  
+/*----------------------------------------------------------------------------------------------------------------------	
+	short türünden char türüne yapılan explicit dönüşümde sayının bit kalıbı değişmez, bitlerin yorumlanışı değişir. 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{		
-		java.util.Scanner kb = new java.util.Scanner(System.in);
+		short b = -8128;
+		char a;
 		
-		while (true) {
-			System.out.print("İki sayı giriniz:");
-			int a = kb.nextInt();
-			int b = kb.nextInt();
-			double c;
-			
-			if (b == 0)
-				break;			
-			
-			c = (double)a / b;
-			
-			System.out.printf("%d / %d = %f%n", a, b, c);
-		}
+		a = (char)b;
+		
+		System.out.printf("a = %c, a = %d, a = %04X%n", a, (int)a, (int)a);
+		System.out.printf("b = %d, b = %04X%n", b, b);
 	}
 }
