@@ -1,17 +1,19 @@
 /*----------------------------------------------------------------------------------------------------------------------	
-	short türünden char türüne yapılan explicit dönüşümde sayının bit kalıbı değişmez, bitlerin yorumlanışı değişir. 
+	Anahtar Notlar: int türünün ve long türünün en büyük ve en küçük değerlerine doğrudan yazmadan aşağıdaki gibi erişilebilir.
+	Detaylar ileride ele alınacaktır
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{		
-		short b = -8128;
-		char a;
+		double a = -129.4;
+		byte b;
 		
-		a = (char)b;
+		b = (byte)a;
 		
-		System.out.printf("a = %c, a = %d, a = %04X%n", a, (int)a, (int)a);
-		System.out.printf("b = %d, b = %04X%n", b, b);
+		System.out.printf("(int)-129 = %08X%n", -129);
+		System.out.printf("b = %d, b = %02X%n", b, b);
 	}
 }
+
