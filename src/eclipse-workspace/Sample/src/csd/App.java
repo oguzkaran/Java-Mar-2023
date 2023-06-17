@@ -1,19 +1,21 @@
 /*----------------------------------------------------------------------------------------------------------------------	
-	Anahtar Notlar: int türünün ve long türünün en büyük ve en küçük değerlerine doğrudan yazmadan aşağıdaki gibi erişilebilir.
-	Detaylar ileride ele alınacaktır
+	Aşağıdaki örnekte gerekli olmasa da okunabilirliği artırmak açısından parantez kullanılmıştır
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{		
-		double a = -129.4;
-		byte b;
+		java.util.Scanner kb = new java.util.Scanner(System.in);
 		
-		b = (byte)a;
+		System.out.print("Üç sayı giriniz:");
+		int a = kb.nextInt();
+		int b = kb.nextInt();
+		int c = kb.nextInt();	
+		int max;
 		
-		System.out.printf("(int)-129 = %08X%n", -129);
-		System.out.printf("b = %d, b = %02X%n", b, b);
+		max = (a > b) ? (a > c ? a : c) : (b > c ? b : c);
+		
+		System.out.printf("max(%d, %d, %d) = %d%n", a, b, c, max);		
 	}
 }
-
