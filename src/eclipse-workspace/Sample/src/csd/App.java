@@ -1,21 +1,48 @@
-/*----------------------------------------------------------------------------------------------------------------------	
-	Aşağıdaki örnekte gerekli olmasa da okunabilirliği artırmak açısından parantez kullanılmıştır
+/*----------------------------------------------------------------------------------------------------------------------	 
+	Bir Sınıf İçerisinde Aynı İsimde Birden Fazla Metot Yazılması: (Method Overloading)
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{		
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
-		System.out.print("Üç sayı giriniz:");
-		int a = kb.nextInt();
-		int b = kb.nextInt();
-		int c = kb.nextInt();	
-		int max;
-		
-		max = (a > b) ? (a > c ? a : c) : (b > c ? b : c);
-		
-		System.out.printf("max(%d, %d, %d) = %d%n", a, b, c, max);		
+	{			
+		PrintCollatzTest.run();
 	}
 }
+
+class PrintCollatzTest {	
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Bir sayı giriniz:");
+			int n = Integer.parseInt(kb.nextLine());
+			
+			if (n == 0)
+				break;
+			
+			NumberUtil.printCollatz(n);
+		}
+		
+		System.out.println("Tekrar Yapıyor musunuz?");
+	}
+}
+
+class NumberUtil {	
+	public static void printCollatz(int n)
+	{
+		if (n <= 0) {
+			System.out.println("Geçersiz sayı!...");
+			return;
+		}
+		
+		System.out.println(n);
+		
+		while (n != 1) {
+			n = (n % 2 == 0) ? (n / 2) : (3  * n + 1);
+			System.out.println(n);
+		}	
+	}
+}
+
