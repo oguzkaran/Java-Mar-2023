@@ -1,6 +1,5 @@
 /*----------------------------------------------------------------------------------------------------------------------	 
-    Sınıf Çalışması: Bir torbada bulunan [1, 99] arasındaki toplardan, çekilen top geri atılmamak üzere, çekilen iki topun da 
-    çift olma olasılığını simüle eden programı yazınız  
+    Random sınıfın logn parametreli ctor'u ile tohum değeri verilerek nesne yaratılabilir. Aşağıdaki örneği inceleyiniz 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
@@ -15,7 +14,7 @@ class RandomCoordinateGeneratorDemoApp {
 	public static void run()
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
-		java.util.Random r = new java.util.Random();
+		
 		
 		System.out.print("Input width, height, count and a value");
 		int width = kb.nextInt();
@@ -23,7 +22,8 @@ class RandomCoordinateGeneratorDemoApp {
 		int count = kb.nextInt();
 		long value = kb.nextLong();	
 		
-		r.setSeed(value);
+		java.util.Random r = new java.util.Random(value);
+		
 		for (int i = 0; i < count; ++i) {
 			IntPoint point = RandomIntPointGenerator.create(r, 0, width, 0, height);
 			
@@ -38,56 +38,64 @@ class RandomCoordinateGeneratorDemoApp {
 class RandomIntPointGenerator {
 	public static IntPoint create(java.util.Random random, int min, int bound)
 	{
-		IntPoint point = new IntPoint();
-		
-		point.x = random.nextInt(min, bound);		
-		point.y = random.nextInt(min, bound);		
-		
-		return point;
+		return create(random, min, bound, min, bound);
 	}
 	
 	public static IntPoint create(java.util.Random random, int minX, int boundX, int minY, int boundY)
 	{
-		IntPoint point = new IntPoint();
-		
-		point.x = random.nextInt(minX, boundX);		
-		point.y = random.nextInt(minY, boundY);		
-		
-		return point;
+		return new IntPoint(random.nextInt(minX, boundX), random.nextInt(minY, boundY));		
 	}
 }
 
 
-class EvenTwoBallsSimulation {
-	public double probability;
+class IntPoint {
+	public int x, y;
 	
-	public static int getFirstBall(java.util.Random r)
-	{
-		return r.nextInt(1, 100);
+	public IntPoint()
+	{		
 	}
 	
-	public static int getSecondBall(java.util.Random r, int first)
+	public IntPoint(int a)
 	{
-		int second;
-		
-		while ((second = r.nextInt(1, 100)) == first)
-			;
-		
-		return second;
+		x = a;
 	}
 	
-	public void run(int n)
+	public IntPoint(int a, int b)
 	{
-		java.util.Random r = new java.util.Random();
-		int count = 0;
-		
-		for (int i = 0, i < n; ++i) {
-			int first = getFirstBall(r);
-			int second = getSecondBall(r, first);
-		} 
-			
-		
-		
+		x = a;
+		y = b;
+	}
+	
+	public double distance()
+	{
+		return distance(0, 0);
+	}
+	
+	public double distance(IntPoint other)
+	{
+		return distance(other.x, other.y);
+	}
+	
+	public double distance(int a, int b)
+	{
+		return Math.sqrt(Math.pow(x - a, 2) + Math.pow(y - b, 2));
+	}
+	
+	public void offset(int dxy)
+	{
+		offset(dxy, dxy);
+	}
+	
+	
+	public void offset(int dx, int dy)
+	{
+		x += dx;
+		y += dy;
+	}
+	
+	public void print()
+	{
+		System.out.printf("(%d, %d)%n", x, y);
 	}
 }
 
