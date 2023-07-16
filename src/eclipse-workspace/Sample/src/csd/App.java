@@ -6,11 +6,11 @@ package csd;
 class App {
 	public static void main(String [] args)
 	{	
-		ComplexAddWithComplexTest.run();		
+		ComplexMultiplyWithComplexTest.run();		
 	}
 }
 
-class ComplexAddWithComplexTest {
+class ComplexMultiplyWithComplexTest {
 	public static void run()
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
@@ -25,10 +25,10 @@ class ComplexAddWithComplexTest {
 			Complex z1 = ComplexUtil.createRandomComplex(random, -10, 10);
 			Complex z2 = ComplexUtil.createRandomComplex(random, -10, 10);
 			
-			z1.print();
+			z1.print();			
 			z2.print();
 			
-			Complex z = z1.add(z2);
+			Complex z = z1.multiply(z2);
 			
 			z.print();
 			
@@ -54,6 +54,21 @@ class Complex {
 	public double real;
 	public double imag;
 	
+	public static Complex add(double a1, double b1, double a2, double b2)
+	{
+		return new Complex(a1 + a2, b1 + b2);
+	}
+	
+	public static Complex subtract(double a1, double b1, double a2, double b2)
+	{
+		return add(a1, b1, -a2, -b2);
+	}
+	
+	public static Complex multiply(double a1, double b1, double a2, double b2)
+	{
+		return new Complex(a1 * a2 - b1 * b2, a1 * b2 + a2 * b1);
+	}
+	
 	public Complex()
 	{
 	}
@@ -74,9 +89,49 @@ class Complex {
 		return new Complex(real, -imag);
 	}
 	
+	public static Complex add(double val, Complex z)
+	{
+		return add(val, 0, z.real, z.imag);
+	}
+	
+	public Complex add(double val)
+	{
+		return add(real, imag, val, 0);
+	}
+	
 	public Complex add(Complex other)
 	{
-		
+		return add(real, imag, other.real, other.imag);
+	}
+	
+	public static Complex subtract(double val, Complex z)
+	{
+		return subtract(val, 0, z.real, z.imag);
+	}
+	
+	public Complex subtract(double val)
+	{
+		return subtract(real, imag, val, 0);
+	}
+	
+	public Complex subtract(Complex other)
+	{
+		return subtract(real, imag, other.real, other.imag);
+	}
+	
+	public static Complex multiply(double val, Complex z)
+	{
+		return multiply(val, 0, z.real, z.imag);
+	}
+	
+	public Complex multiply(double val)
+	{
+		return multiply(real, imag, val, 0);
+	}
+	
+	public Complex multiply(Complex other)
+	{
+		return subtract(real, imag, other.real, other.imag);
 	}
 	
 	public void print()
