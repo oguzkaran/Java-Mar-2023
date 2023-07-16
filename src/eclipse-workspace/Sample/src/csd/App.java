@@ -1,101 +1,86 @@
 /*----------------------------------------------------------------------------------------------------------------------	 
-    Random sınıfın logn parametreli ctor'u ile tohum değeri verilerek nesne yaratılabilir. Aşağıdaki örneği inceleyiniz 
+     
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{		
-		RandomCoordinateGeneratorDemoApp.run();
+	{	
+		ComplexAddWithComplexTest.run();		
 	}
 }
 
-class RandomCoordinateGeneratorDemoApp {
+class ComplexAddWithComplexTest {
 	public static void run()
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
+		java.util.Random random = new java.util.Random();
 		
-		
-		System.out.print("Input width, height, count and a value");
-		int width = kb.nextInt();
-		int height = kb.nextInt();
+		System.out.print("Input count:");
 		int count = kb.nextInt();
-		long value = kb.nextLong();	
 		
-		java.util.Random r = new java.util.Random(value);
 		
-		for (int i = 0; i < count; ++i) {
-			IntPoint point = RandomIntPointGenerator.create(r, 0, width, 0, height);
+		while (count-- > 0) {
+			System.out.println("-------------------------------------------------------------------");
+			Complex z1 = ComplexUtil.createRandomComplex(random, -10, 10);
+			Complex z2 = ComplexUtil.createRandomComplex(random, -10, 10);
 			
-			//...
+			z1.print();
+			z2.print();
 			
-			point.print();
+			Complex z = z1.add(z2);
+			
+			z.print();
+			
+			System.out.println("-------------------------------------------------------------------");
 		}
-			
+		
 	}
 }
 
-class RandomIntPointGenerator {
-	public static IntPoint create(java.util.Random random, int min, int bound)
+class ComplexUtil {
+	public static Complex createRandomComplex(java.util.Random random, double min, double bound)
 	{
-		return create(random, min, bound, min, bound);
+		return createRandomComplex(random, min, bound, min, bound);
 	}
 	
-	public static IntPoint create(java.util.Random random, int minX, int boundX, int minY, int boundY)
+	public static Complex createRandomComplex(java.util.Random random, double minReal, double boundReal, double minImag, double boundImag)
 	{
-		return new IntPoint(random.nextInt(minX, boundX), random.nextInt(minY, boundY));		
+		return new Complex(random.nextDouble(minReal, boundReal), random.nextDouble(minImag, boundImag));
 	}
 }
 
-
-class IntPoint {
-	public int x, y;
+class Complex {
+	public double real;
+	public double imag;
 	
-	public IntPoint()
-	{		
+	public Complex()
+	{
 	}
 	
-	public IntPoint(int a)
+	public Complex(double re)
 	{
-		x = a;
+		real = re;		
 	}
 	
-	public IntPoint(int a, int b)
+	public Complex(double re, double im)
 	{
-		x = a;
-		y = b;
+		real = re;
+		imag = im;
 	}
 	
-	public double distance()
+	public Complex getConjugate()
 	{
-		return distance(0, 0);
+		return new Complex(real, -imag);
 	}
 	
-	public double distance(IntPoint other)
+	public Complex add(Complex other)
 	{
-		return distance(other.x, other.y);
-	}
-	
-	public double distance(int a, int b)
-	{
-		return Math.sqrt(Math.pow(x - a, 2) + Math.pow(y - b, 2));
-	}
-	
-	public void offset(int dxy)
-	{
-		offset(dxy, dxy);
-	}
-	
-	
-	public void offset(int dx, int dy)
-	{
-		x += dx;
-		y += dy;
+		
 	}
 	
 	public void print()
 	{
-		System.out.printf("(%d, %d)%n", x, y);
+		System.out.printf("(%f, %f)%n", real, imag);
 	}
 }
-
