@@ -1,15 +1,38 @@
 /*----------------------------------------------------------------------------------------------------------------------	 
-	Length'i sıfır olan bir string'e boş string (empty string) denir. Boş string tipik olarak iki tane iki tırnak 
-	karakterinin bitişik olarak yazılması ile elde edilebilir. Şüphesiz String nesnesi yaratılmış olur
+	Sınıf Çalışması: Parametresi ile aldığı yazının tersini döndüren reverse isimli metodu yazınız ve aşağıdaki kod
+	ile test ediniz	
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{	
-		String s = "";
-		
-		System.out.printf("Length:%d", s.length());
+		ReverseTest.run();
 	}
 }
 
+class ReverseTest {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Bir yazı giriniz:");
+			String s = kb.nextLine();
+			
+			if ("elma".equals(s))
+				break;
+			
+			System.out.printf("Yazının tersi:%s%n", StringUtil.reverse(s));			
+		}
+		
+		System.out.println("Tekrar yapıyor musunuz?");
+	}
+}
+
+class StringUtil {
+	public static String reverse(String s)
+	{
+		//TODO:
+	}
+}
