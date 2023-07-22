@@ -1,38 +1,16 @@
-/*----------------------------------------------------------------------------------------------------------------------	 
-	Sınıf Çalışması: Parametresi ile aldığı yazının tersini döndüren reverse isimli metodu yazınız ve aşağıdaki kod
-	ile test ediniz	
------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki programdaki ekran çıktısı ne olur?
+---------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{	
-		ReverseTest.run();
+		System.out.println("Java" + 20 + 23); //Java2023
+		System.out.println("Java" + (20 + 23)); //Java43		
+		System.out.println(20 + 23 + "Java"); //43Java
 	}
 }
 
-class ReverseTest {
-	public static void run()
-	{
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
-		while (true) {
-			System.out.print("Bir yazı giriniz:");
-			String s = kb.nextLine();
-			
-			if ("elma".equals(s))
-				break;
-			
-			System.out.printf("Yazının tersi:%s%n", StringUtil.reverse(s));			
-		}
-		
-		System.out.println("Tekrar yapıyor musunuz?");
-	}
-}
 
-class StringUtil {
-	public static String reverse(String s)
-	{
-		//TODO:
-	}
-}
+
