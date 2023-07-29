@@ -1,71 +1,43 @@
 /*----------------------------------------------------------------------------------------------------------------------
- 	Sınıf Çalışması: Parametresi ile aldığı bir yazının 
+ 	Sınıf Çalışması: Parametresi ile aldığı bir yazının iki yazının anagram olup olmasdıklarını test eden isAnagram 
+ 	metodunu yazınız ve aşağıdaki kod ile test ediniz.
+ 	Açıklamalar:
+ 		- Harflerin  yerleri değiştirildiğinde yazılabilen yazılara denir. Örneğin, bart ve brat yazıları anagramdır
+ 		- Yazıların anlamlı olup olmadıklarına bakılmayacaktır 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{	
-		IsPalindromTest.run();
+		IsAnagramTest.run();
 	}
 }
 
-class IsPalindromTest {
+class IsAnagramTest {
 	public static void run()
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);		
 		
 		while (true) {
-			System.out.print("Bir yazı giriniz:");
-			String s = kb.nextLine();
+			System.out.print("Birinci yazıyı giriniz:");
+			String s1 = kb.nextLine();
 			
-			if ("elma".equals(s))
+			if ("elma".equals(s1))
 				break;
 			
-			System.out.println(StringUtil.isPalindrome(s) ? "Palindrom" : "Palindrom değil");		
+			System.out.print("İkinci yazıyı giriniz:");
+			String s2 = kb.nextLine();
+			
+			System.out.println(StringUtil.isAnagram(s1, s2) ? "Anagram" : "Anagram değil");		
 		}		
 	}
 }
 
 class StringUtil {
-	public static boolean isPalindrome(String s)
+	public static boolean isAnagram(String s1, String s2)
 	{
-		int left = 0;
-		int right = s.length() - 1;
-		boolean result = true;
-		char cLeft = '\0';
-		boolean cLeftSelected = false;
-		
-		while (left < right) {
-			if (!cLeftSelected) {
-				cLeft = Character.toLowerCase(s.charAt(left));
-				
-				if (!Character.isLetter(cLeft)) {
-					++left;
-					continue;
-				}
-				
-				cLeftSelected = true;
-			}
-			
-			char cRight = Character.toLowerCase(s.charAt(right));
-			
-			if (!Character.isLetter(cRight)) {
-				--right;
-				continue;
-			}
-			
-			if (cLeft != cRight) {
-				result = false;
-				break;
-			}
-			
-			--right;
-			++left;
-			cLeftSelected = false;
-		}
-		
-		return result;
+		//TODO:
 	}	
 }
 
