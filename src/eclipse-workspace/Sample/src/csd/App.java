@@ -1,61 +1,72 @@
 /*----------------------------------------------------------------------------------------------------------------------
- 	Sınıf Çalışması: Parametresi ile aldığı bir yazının palindrom olup olmadığını test eden isPalindrome metodunu StringUtil
- 	sınıfı içerisinde yazınız ve test ediniz
- 	Palindrom: Yalnızca alfabetik karakterlerinin tersinden ve düzünden de aynı olduğu yazılara denir.
- 	Örnekler:
-	Anastas mum satsana
-	Ey Edip Adana'da pide ye
-	Ali Papila
+ 	Sınıf Çalışması: Parametresi ile aldığı bir yazının 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{	
-		GenerateRandomText.run();
+		IsPalindromTest.run();
 	}
 }
 
-class GenerateRandomText {
+class IsPalindromTest {
 	public static void run()
 	{
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		java.util.Random random = new java.util.Random();
+		java.util.Scanner kb = new java.util.Scanner(System.in);		
 		
 		while (true) {
-			System.out.print("Bir sayı giriniz:");
-			int count = Integer.parseInt(kb.nextLine());
+			System.out.print("Bir yazı giriniz:");
+			String s = kb.nextLine();
 			
-			if (count <= 0)
+			if ("elma".equals(s))
 				break;
 			
-			System.out.printf("Üretilen Yazı:%s%n", StringUtil.generateRandomTextTR(random, count));
-			System.out.printf("Generated Text:%s%n", StringUtil.generateRandomTextEN(random, count));
+			System.out.println(StringUtil.isPalindrome(s) ? "Palindrom" : "Palindrom değil");		
 		}		
 	}
 }
 
 class StringUtil {
-	public static String generateRandomText(java.util.Random random, int count, String sourceText)
+	public static boolean isPalindrome(String s)
 	{
-		String str = "";
-		int sourceTextLen = sourceText.length();
+		int left = 0;
+		int right = s.length() - 1;
+		boolean result = true;
+		char cLeft = '\0';
+		boolean cLeftSelected = false;
 		
-		for (int i = 0; i < count; ++i)
-			str += sourceText.charAt(random.nextInt(sourceTextLen));
+		while (left < right) {
+			if (!cLeftSelected) {
+				cLeft = Character.toLowerCase(s.charAt(left));
+				
+				if (!Character.isLetter(cLeft)) {
+					++left;
+					continue;
+				}
+				
+				cLeftSelected = true;
+			}
+			
+			char cRight = Character.toLowerCase(s.charAt(right));
+			
+			if (!Character.isLetter(cRight)) {
+				--right;
+				continue;
+			}
+			
+			if (cLeft != cRight) {
+				result = false;
+				break;
+			}
+			
+			--right;
+			++left;
+			cLeftSelected = false;
+		}
 		
-		return str;
-	}
-	
-	public static String generateRandomTextEN(java.util.Random random, int count)
-	{
-		return generateRandomText(random, count, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-	}
-	
-	public static String generateRandomTextTR(java.util.Random random, int count)
-	{
-		return generateRandomText(random, count, "abcçdefgğhıijklmnoöprsştuüvyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ");
-	}
+		return result;
+	}	
 }
 
 
