@@ -1,45 +1,35 @@
 /*----------------------------------------------------------------------------------------------------------------------
- 	Sınıf Çalışması: Parametresi ile aldığı bir yazının iki yazının anagram olup olmasdıklarını test eden isAnagram 
- 	metodunu yazınız ve aşağıdaki kod ile test ediniz.
- 	Açıklamalar:
- 		- Harflerin  yerleri değiştirildiğinde yazılabilen yazılara denir. Örneğin, bart ve brat yazıları anagramdır
- 		- Yazıların anlamlı olup olmadıklarına bakılmayacaktır 
+	 Java 11 ile birlikte strip, stripLeading ve stringTrailin metotları eklenmiştir. strip metodu yazının başındaki 
+	 ve sonundaki boşluk (whitespace) karakterlerini, stripLeading yazının yalnızca başındaki boşluk karakterlerini ve
+	 stripTrailing ise yazının yalnızca sonundaki boşluk karakterlerini atar. strip metodunun trim metodundan farklı 
+	 bir örnekten sonra açıklanmaktadır
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{	
-		IsAnagramTest.run();
+	{		
+		StripLeadingTrailingTest.run();
 	}
 }
 
-class IsAnagramTest {
+class StripLeadingTrailingTest {	
 	public static void run()
 	{
-		java.util.Scanner kb = new java.util.Scanner(System.in);		
-		
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+	
 		while (true) {
-			System.out.print("Birinci yazıyı giriniz:");
-			String s1 = kb.nextLine();
+			System.out.print("Bir yazı giriniz:");
+			String s = kb.nextLine();
 			
-			if ("elma".equals(s1))
+			if ("elma".equals(s))
 				break;
 			
-			System.out.print("İkinci yazıyı giriniz:");
-			String s2 = kb.nextLine();
-			
-			System.out.println(StringUtil.isAnagram(s1, s2) ? "Anagram" : "Anagram değil");		
-		}		
+			System.out.printf("(%s)%n", s.strip());
+			System.out.printf("(%s)%n", s.stripLeading());
+			System.out.printf("(%s)%n", s.stripTrailing());			
+		}
+		
+		System.out.println("Tekrar yapıyor musnuz?");
 	}
 }
-
-class StringUtil {
-	public static boolean isAnagram(String s1, String s2)
-	{
-		//TODO:
-	}	
-}
-
-
-
