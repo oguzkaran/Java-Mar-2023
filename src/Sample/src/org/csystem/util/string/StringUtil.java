@@ -169,4 +169,25 @@ public class StringUtil {
 
         return str;
     }
+
+    public static String trimLeading(String s)
+    {
+        int i;
+        int len = s.length();
+
+        for (i = 0; i < len && Character.isWhitespace(s.charAt(i)); ++i)
+            ;
+
+        return s.substring(i);
+    }
+
+    public static String trimTrailing(String s)
+    {
+        int i;
+
+        for (i = s.length() - 1; i >= 0 && Character.isWhitespace(s.charAt(i)); --i)
+            ;
+
+        return s.substring(0, i + 1);
+    }
 }
