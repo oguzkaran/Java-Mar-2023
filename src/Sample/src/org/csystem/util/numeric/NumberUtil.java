@@ -75,7 +75,7 @@ public class NumberUtil {
         int result = 0;
 
         while (val != 0) {
-            result += pow(val % 10, n);
+            result += (int)Math.pow(val % 10, n);
             val /= 10;
         }
 
@@ -254,31 +254,6 @@ public class NumberUtil {
         return (result = nextClosestPrimeFibonacciNumber(val)) + nextClosestPrimeFibonacciNumber(result);
     }
 
-    public static int pow(int a, int b)
-    {
-        int result = 1;
-
-        while (b-- > 0)
-            result *= a;
-
-        return result;
-    }
-
-    public static void printCollatz(int n)
-    {
-        if (n <= 0) {
-            System.out.println("Geçersiz sayı!...");
-            return;
-        }
-
-        System.out.println(n);
-
-        while (n != 1) {
-            n = (n % 2 == 0) ? (n / 2) : (3  * n + 1);
-            System.out.println(n);
-        }
-    }
-
     public static void printGoldbach(int val)
     {
         for (int a = val - 1; a >= 2; --a) {
@@ -289,7 +264,7 @@ public class NumberUtil {
         }
     }
 
-    public static void printPrimefactors(int val)
+    public static void printPrimeFactors(int val)
     {
         if (val == 0)
             return;
@@ -322,26 +297,12 @@ public class NumberUtil {
         return result;
     }
 
-    public static int signum(int a)
-    {
-        int result;
-
-        if (a > 0)
-            result = 1;
-        else if (a == 0)
-            result = 0;
-        else
-            result = -1;
-
-        return result;
-    }
-
     public static int sumDigits(long val)
     {
         int total = 0;
 
         while (val != 0) {
-            total += val % 10;
+            total += (int)(val % 10);
             val /= 10;
         }
 
@@ -355,9 +316,8 @@ public class NumberUtil {
 
         for (long i = 2; i <= sqrtVal; ++i)
             if (val % i == 0)
-                result += (i == val / i) ? i : (i + val / i);
+                result += (int)((i == val / i) ? i : (i + val / i));
 
         return result;
     }
-
 }

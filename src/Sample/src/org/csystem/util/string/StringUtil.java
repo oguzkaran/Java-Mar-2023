@@ -134,29 +134,6 @@ public class StringUtil {
         return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
     }
 
-    public static void joinWithHyphen()
-    {
-        java.util.Scanner kb = new java.util.Scanner(System.in);
-
-        String str = "";
-
-        while (true) {
-            System.out.print("Bir yazı giriniz:");
-            String s = kb.nextLine();
-
-            if ("elma".equals(s))
-                break;
-
-            if (s.trim().isEmpty())
-                continue;
-
-            str += s + "-";
-        }
-
-        str = str.isEmpty() ? str : str.substring(0, str.length() - 1);
-        System.out.println(str);
-    }
-
     public static String padLeading(String s, int len, char ch)
     {
         int length = s.length();
@@ -181,11 +158,6 @@ public class StringUtil {
         return padTrailing(s, len, ' ');
     }
 
-    public static String repeat(char c, int count)
-    {
-        return String.format("%0" + count + "d", 0).replace('0', c);
-    }
-
     public static String reverse(String s)
     {
         String str = "";
@@ -195,25 +167,4 @@ public class StringUtil {
 
         return str;
     }
-
-    public static String trimLeading(String s)
-    {
-        int i;
-        int len = s.length();
-
-        for (i = 0; i < len && Character.isWhitespace(s.charAt(i)); ++i)
-            ;
-
-        return s.substring(i);
-    }
-
-    public static String trimTrailing(String s)
-    {
-        int i;
-
-        for (i = s.length() - 1; i >= 0 && Character.isWhitespace(s.charAt(i)); --i)
-            ;
-
-        return s.substring(0, i + 1);
-    }""
 }
