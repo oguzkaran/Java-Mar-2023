@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 06th Aug 2023
+	Last UPDATE	: 12th Aug 2023
 	
 	Utility class for numeric operations
 	
@@ -9,6 +9,8 @@
 	All Right Free
 -------------------------------------------------------------*/
 package org.csystem.util.numeric;
+
+import static java.lang.Math.*;
 
 public class NumberUtil {
     public static boolean areFriends(int a, int b)
@@ -18,7 +20,7 @@ public class NumberUtil {
 
     public static int calculateDigitalRoot(int val)
     {
-        int root = Math.abs(val);
+        int root = abs(val);
 
         while ((root = sumDigits(root)) > 9)
             ;
@@ -28,7 +30,7 @@ public class NumberUtil {
 
     public static int countDigits(int val)
     {
-        return val != 0 ? (int)Math.log10(Math.abs(val)) + 1 : 1;
+        return val != 0 ? (int)log10(abs(val)) + 1 : 1;
     }
 
     public static int digitsFactorialSum(int n)
@@ -75,7 +77,7 @@ public class NumberUtil {
         int result = 0;
 
         while (val != 0) {
-            result += (int)Math.pow(val % 10, n);
+            result += (int)pow(val % 10, n);
             val /= 10;
         }
 
@@ -269,7 +271,7 @@ public class NumberUtil {
         if (val == 0)
             return;
 
-        val = Math.abs(val);
+        val = abs(val);
 
         int a = 2;
 
@@ -306,13 +308,13 @@ public class NumberUtil {
             val /= 10;
         }
 
-        return Math.abs(total);
+        return abs(total);
     }
 
     public static int sumFactors(long val)
     {
         int result = 1;
-        long sqrtVal = (long)Math.sqrt(val);
+        long sqrtVal = (long)sqrt(val);
 
         for (long i = 2; i <= sqrtVal; ++i)
             if (val % i == 0)

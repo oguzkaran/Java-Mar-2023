@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: Complex.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 06th Aug 2023
+	Last UPDATE	: 12th Aug 2023
 	
 	Complex class that represents a complex number
 	
@@ -9,6 +9,9 @@
 	All Right Free
 -------------------------------------------------------------*/
 package org.csystem.math;
+
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
 
 public class Complex {
 	public double real;
@@ -46,7 +49,7 @@ public class Complex {
 	
 	public double getLength()
 	{
-		return Math.sqrt(real * real + imag * imag);
+		return sqrt(real * real + imag * imag);
 	}
 	
 	public double getNorm()
@@ -128,7 +131,7 @@ public class Complex {
 	{
 		double DELTA = 0.000001;
 		
-		return Math.abs(real - other.real) < DELTA && Math.abs(imag - other.imag) < DELTA;
+		return abs(real - other.real) < DELTA && abs(imag - other.imag) < DELTA;
 	}
 	
 	public String toString()

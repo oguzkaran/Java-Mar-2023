@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 06th Aug 2023
+	Last UPDATE	: 12th Aug 2023
 
 	Utility class for string operations
 
@@ -9,6 +9,8 @@
 	All Right Free
 -------------------------------------------------------------*/
 package org.csystem.util.string;
+
+import java.util.Random;
 
 public class StringUtil {
     public static String capitalize(String s)
@@ -31,7 +33,7 @@ public class StringUtil {
         return countString(s1.toLowerCase(), s2.toLowerCase());
     }
 
-    public static String generateRandomText(java.util.Random random, int count, String sourceText)
+    public static String generateRandomText(Random random, int count, String sourceText)
     {
         String str = "";
         int sourceTextLen = sourceText.length();
@@ -42,12 +44,12 @@ public class StringUtil {
         return str;
     }
 
-    public static String generateRandomTextEN(java.util.Random random, int count)
+    public static String generateRandomTextEN(Random random, int count)
     {
         return generateRandomText(random, count, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     }
 
-    public static String generateRandomTextTR(java.util.Random random, int count)
+    public static String generateRandomTextTR(Random random, int count)
     {
         return generateRandomText(random, count, "abcçdefgğhıijklmnoöprsştuüvyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ");
     }
