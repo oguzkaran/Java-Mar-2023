@@ -167,7 +167,6 @@ public class StringUtil {
 
         return str;
     }
-<<<<<<< HEAD
 
     public static String trimLeading(String s)
     {
@@ -189,6 +188,4 @@ public class StringUtil {
 
         return s.substring(0, i + 1);
     }
-=======
->>>>>>> ef70c475398a5b433b2e8d1ff585029c1424d7de
 }
