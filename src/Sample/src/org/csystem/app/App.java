@@ -1,7 +1,6 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı int türden bir dizinin en büyük elemanına geri dönen max ve parametresi
-	ile aldığı int türden bir dizinin en küçük elemanına geri dönen min isimli metotları ArrayUtil sınıfı içerisinde
-	yazınız ve aşağıdaki kod ile test ediniz
+	Sınıf Çalışması: Parametresi ile aldığı int türden bir diziyi başka bir dizi kullanmadan tersyüz eden reverse isimli
+	metodu ArrayUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import static org.csystem.util.array.ArrayUtil.*;
 
-public class ArrayUtilMinMaxTest {
+public class ArrayUtilReverseTest {
     public static void run()
     {
         Random random = new Random();
@@ -19,8 +19,8 @@ public class ArrayUtilMinMaxTest {
 
             System.out.println("--------------------------------------------------------");
             print(2, a);
-            System.out.printf("En büyük eleman:%d%n", max(a));
-            System.out.printf("En küçük eleman:%d%n", min(a));
+            reverse(a);
+            print(2, a);
             System.out.println("--------------------------------------------------------");
         }
     }
