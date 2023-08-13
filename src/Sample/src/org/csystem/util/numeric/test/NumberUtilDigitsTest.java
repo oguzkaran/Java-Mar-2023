@@ -1,11 +1,12 @@
-package org.csystem.util.array.test;
+package org.csystem.util.numeric.test;
 
 import java.util.Random;
 import java.util.Scanner;
 
 import static org.csystem.util.array.ArrayUtil.*;
+import static org.csystem.util.numeric.NumberUtil..*;
 
-public class ArrayUtilSumTest {
+public class NumberUtilDigitsTest {
     public static void run()
     {
         Random random = new Random();
@@ -15,11 +16,11 @@ public class ArrayUtilSumTest {
         int count = kb.nextInt();
 
         while (count-- > 0) {
-            int [] a = generateRandomArray(random, random.nextInt(3, 8), 0, 100);
+            long val = random.nextLong();
 
             System.out.println("--------------------------------------------------------");
-            print(2, a);
-            System.out.printf("Toplam:%d%n", sum(a));
+            System.out.printf("%d -> ", val);
+            print(digits(val));
             System.out.println("--------------------------------------------------------");
         }
     }

@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 12th Aug 2023
+	Last UPDATE	: 13th Aug 2023
 	
 	Utility class for numeric operations
 	
@@ -31,6 +31,11 @@ public class NumberUtil {
     public static int countDigits(int val)
     {
         return val != 0 ? (int)log10(abs(val)) + 1 : 1;
+    }
+
+    public static int [] digits(long val)
+    {
+        //TODO
     }
 
     public static int digitsFactorialSum(int n)

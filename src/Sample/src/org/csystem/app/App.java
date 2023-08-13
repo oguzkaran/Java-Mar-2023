@@ -1,6 +1,7 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı int türden bir dizinin elemanları toplamına geri dönen sum isimli metodu
-	ArrayUtil içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	Sınıf Çalışması: Parametresi ile aldığı long türden bir sayının basamaklarından oluşan diziye geri dönen digits
+	isimli metodu NumberUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz.
+	Açıklamalar: Sayının negatif olması durumunda da basamaklardan oluşan dizi pozitif değerler içerecektir
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
