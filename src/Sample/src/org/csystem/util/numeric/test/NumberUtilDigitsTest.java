@@ -3,8 +3,8 @@ package org.csystem.util.numeric.test;
 import java.util.Random;
 import java.util.Scanner;
 
-import static org.csystem.util.array.ArrayUtil.*;
-import static org.csystem.util.numeric.NumberUtil..*;
+import static org.csystem.util.array.ArrayUtil.print;
+import static org.csystem.util.numeric.NumberUtil.digits;
 
 public class NumberUtilDigitsTest {
     public static void run()

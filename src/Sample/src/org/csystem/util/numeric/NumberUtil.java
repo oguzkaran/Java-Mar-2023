@@ -28,14 +28,20 @@ public class NumberUtil {
         return root;
     }
 
-    public static int countDigits(int val)
+    public static int countDigits(long val)
     {
         return val != 0 ? (int)log10(abs(val)) + 1 : 1;
     }
 
     public static int [] digits(long val)
     {
-        //TODO
+        int [] result = new int[countDigits(val)];
+        val = Math.abs(val);
+
+        for (int i = result.length  - 1; i >= 0; result[i] = (int)(val % 10), val /= 10, --i)
+            ;
+
+        return result;
     }
 
     public static int digitsFactorialSum(int n)
