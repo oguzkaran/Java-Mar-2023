@@ -30,7 +30,7 @@ public class ArrayUtil {
 
     public static int max(int [] a)
     {
-        //TODO:
+
     }
 
     public static int min(int [] a)
@@ -65,5 +65,11 @@ public class ArrayUtil {
     {
         for (int i = 0; i < a.length; ++i)
             System.out.printf("%f%n", a[i]);
+    }
+
+    public static void print(long [] a)
+    {
+        for (int i = 0; i < a.length; ++i)
+            System.out.printf("%d%n", a[i]);
     }
 }
