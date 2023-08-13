@@ -85,6 +85,23 @@ public class ArrayUtil {
 
     public static void reverse(int [] a)
     {
+        int left = 0;
+        int right = a.length - 1;
+
+        while (left < right)
+            swap(a, left++, right--);
+    }
+
+    public static int sum(int [] a)
+    {
         //TODO:
+    }
+
+    public static void swap(int [] a, int i, int k)
+    {
+        int temp = a[i];
+
+        a[i] = a[k];
+        a[k] = temp;
     }
 }

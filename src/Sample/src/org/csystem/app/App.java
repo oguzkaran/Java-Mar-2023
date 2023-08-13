@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı int türden bir diziyi başka bir dizi kullanmadan tersyüz eden reverse isimli
-	metodu ArrayUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
------------------------------------------------------------------------------------------------------------------------*/
+	Sınıf Çalışması: Parametresi ile aldığı int türden bir dizinin elemanları toplamına geri dönen sum isimli metodu
+	ArrayUtil içerisinde yazınız ve aşağıdaki kod ile test ediniz
+----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
 import java.util.Random;
