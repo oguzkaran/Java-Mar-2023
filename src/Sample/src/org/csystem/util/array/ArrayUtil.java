@@ -57,10 +57,38 @@ public class ArrayUtil {
 
         return result;
     }
+    public static int partitionByThresholdGreater(int [] a, int threshold)
+    {
+        int partitionIndex = 0;
+
+        for (; partitionIndex < a.length && a[partitionIndex] > threshold; ++partitionIndex)
+            ;
+
+        if (partitionIndex == a.length)
+            return partitionIndex;
+
+        for (int i = partitionIndex + 1; i < a.length; ++i)
+            if (a[i] < threshold)
+                swap(a, i, partitionIndex++);
+
+        return partitionIndex;
+    }
 
     public static int partitionByThresholdLess(int [] a, int threshold)
     {
-        throw new UnsupportedOperationException("TODO:");
+        int partitionIndex = 0;
+
+        for (; partitionIndex < a.length && a[partitionIndex] < threshold; ++partitionIndex)
+            ;
+
+        if (partitionIndex == a.length)
+            return partitionIndex;
+
+        for (int i = partitionIndex + 1; i < a.length; ++i)
+            if (a[i] < threshold)
+                swap(a, i, partitionIndex++);
+
+        return partitionIndex;
     }
 
     public static void print(int n, int [] a)
@@ -107,6 +135,15 @@ public class ArrayUtil {
             swap(a, left++, right--);
     }
 
+    public static void reverse(char [] a)
+    {
+        int left = 0;
+        int right = a.length - 1;
+
+        while (left < right)
+            swap(a, left++, right--);
+    }
+
     public static int sum(int [] a)
     {
         int total = 0;
@@ -120,6 +157,14 @@ public class ArrayUtil {
     public static void swap(int [] a, int i, int k)
     {
         int temp = a[i];
+
+        a[i] = a[k];
+        a[k] = temp;
+    }
+
+    public static void swap(char [] a, int i, int k)
+    {
+        char temp = a[i];
 
         a[i] = a[k];
         a[k] = temp;

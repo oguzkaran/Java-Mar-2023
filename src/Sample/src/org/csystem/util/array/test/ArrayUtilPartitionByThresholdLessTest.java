@@ -20,7 +20,7 @@ public class ArrayUtilPartitionByThresholdLessTest {
 
             System.out.println("--------------------------------------------------------");
             print(2, a);
-            System.out.printf("val = %d%n", val);
+            System.out.printf("Threshold = %d%n", val);
             int partitionIndex = partitionByThresholdLess(a, val);
             print(2, a);
             System.out.printf("Partition Point:%d%n", partitionIndex);

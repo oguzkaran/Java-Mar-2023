@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 12th Aug 2023
+	Last UPDATE	: 19th Aug 2023
 
 	Utility class for string operations
 
@@ -10,12 +10,27 @@
 -------------------------------------------------------------*/
 package org.csystem.util.string;
 
+
 import java.util.Random;
 
 public class StringUtil {
     public static String capitalize(String s)
     {
         return s.isEmpty() ? "" : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
+    }
+
+    public static String changeCase(String s)
+    {
+        StringBuilder sb = new StringBuilder(s);
+        int len = s.length();
+
+        for (int i = 0; i < len; ++i) {
+            char c = sb.charAt(i);
+
+            sb.setCharAt(i, Character.isUpperCase(c) ? Character.toLowerCase(c) : Character.toUpperCase(c));
+        }
+
+        return sb.toString();
     }
 
     public static int countString(String s1, String s2)
@@ -35,13 +50,13 @@ public class StringUtil {
 
     public static String generateRandomText(Random random, int count, String sourceText)
     {
-        String str = "";
+        StringBuilder sb = new StringBuilder(count);
         int sourceTextLen = sourceText.length();
 
         for (int i = 0; i < count; ++i)
-            str += sourceText.charAt(random.nextInt(sourceTextLen));
+            sb.append(sourceText.charAt(random.nextInt(sourceTextLen)));
 
-        return str;
+        return sb.toString();
     }
 
     public static String generateRandomTextEN(Random random, int count)
@@ -162,12 +177,7 @@ public class StringUtil {
 
     public static String reverse(String s)
     {
-        String str = "";
-
-        for (int i = s.length() - 1; i >= 0; --i)
-            str += s.charAt(i);
-
-        return str;
+        return new StringBuilder(s).reverse().toString();
     }
 
     public static String trimLeading(String s)
