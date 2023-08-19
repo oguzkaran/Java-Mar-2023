@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 13th Aug 2023
+	Last UPDATE	: 19th Aug 2023
 
 	Utility class for array operations
 
@@ -26,6 +26,16 @@ public class ArrayUtil {
         fillRandomArray(random, a, min, bound);
 
         return a;
+    }
+
+    public static int [] histogramData(int [] a, int n)
+    {
+        int [] counts = new int[n + 1];
+
+        for (int i = 0; i < a.length; ++i)
+            ++counts[a[i]];
+
+        return counts;
     }
 
     public static int max(int [] a)
