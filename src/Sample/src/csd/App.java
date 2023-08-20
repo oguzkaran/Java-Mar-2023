@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Homework-008-2.sorunun bir çözümü
+	Homework-008-4.sorunun bir çözümü
     (Not: Çözüm çalışma sorusunun verildiği tarihte işlenmiş konulara göre yazılmıştır)
 ----------------------------------------------------------------------------------------------------------------------*/
 package csd;
@@ -7,19 +7,11 @@ package csd;
 class App {
     public static void main(String[] args)
     {
-        PrintTextApp.run();
+        WrapWithParanthesisApp.run();
     }
 }
 
-class PrintTextApp {
-    public static void printText(String text)
-    {
-        int len = text.length();
-
-        for (int i = 0; i < len; ++i)
-            System.out.println(text.substring(0, i + 1));
-    }
-
+class WrapWithParanthesisApp {
     public static void run()
     {
         java.util.Scanner kb = new java.util.Scanner(System.in);
@@ -31,7 +23,9 @@ class PrintTextApp {
             if ("elma".equals(text))
                 break;
 
-            printText(text);
+            text = "(" + text.strip() + ")";
+
+            System.out.println(text);
         }
     }
 }
