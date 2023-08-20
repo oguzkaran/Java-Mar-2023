@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 19th Aug 2023
+	Last UPDATE	: 20th Aug 2023
 
 	Utility class for string operations
 
@@ -94,6 +94,23 @@ public class StringUtil {
         return count1 == count2;
     }
 
+    public static boolean isIdentifier(String s)
+    {
+        if (s.isBlank() || s.equals("_"))
+            return false;
+
+        if (!Character.isJavaIdentifierStart(s.charAt(0)))
+            return false;
+
+        int len = s.length();
+
+        for (int i = 1; i < len; ++i)
+            if (!Character.isJavaIdentifierPart(s.charAt(i)))
+                return false;
+
+        return true;
+    }
+
     public static boolean isPalindrome(String s)
     {
         int left = 0;
@@ -180,6 +197,21 @@ public class StringUtil {
         return new StringBuilder(s).reverse().toString();
     }
 
+    public static String squeeze(String s1, String s2)
+    {
+        StringBuilder sb = new StringBuilder();
+        int len = s1.length();
+
+        for (int i = 0; i < len; ++i) {
+            char c = s1.charAt(i);
+
+            if (!s2.contains(String.valueOf(c)))
+                sb.append(c);
+        }
+
+        return sb.toString();
+    }
+
     public static String trimLeading(String s)
     {
         int i;
@@ -199,5 +231,25 @@ public class StringUtil {
             ;
 
         return s.substring(0, i + 1);
+    }
+
+    public static String wrapWith(String s, char c)
+    {
+        return wrapWith(s, String.valueOf(c));
+    }
+
+    public static String wrapWith(String s, String str)
+    {
+        return wrapWith(s, str, str);
+    }
+
+    public static String wrapWith(String s, char prefix, char suffix)
+    {
+        return wrapWith(s, String.valueOf(prefix), String.valueOf(suffix));
+    }
+
+    public static String wrapWith(String s, String prefix, String suffix)
+    {
+        return String.format("%s%s%s", prefix, s, suffix);
     }
 }

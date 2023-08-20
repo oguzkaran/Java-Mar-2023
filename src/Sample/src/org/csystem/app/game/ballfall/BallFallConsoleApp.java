@@ -4,20 +4,23 @@ import org.csystem.game.ballfall.BallFall;
 
 import java.util.Scanner;
 
-public class BallFallApp {
+public class BallFallConsoleApp {
 	public static void run()
 	{
 		Scanner kb = new Scanner(System.in);
-		
+		BallFall ballFall = new BallFall();
+
 		while (true) {
 			System.out.print("Input width and height:");
 			int width = kb.nextInt();
 			int height = kb.nextInt();
-			
-			BallFall.play(width, height);
-			
+
 			if (width == 0 || height == 0)
 				break;
+			
+			ballFall.play(width, height);
+
+			System.out.println(ballFall.pattern);
 		}	
 	}
 
