@@ -345,7 +345,7 @@ public class StringUtil {
 
     public static String join(String [] str, String separator)
     {
-        //TODO
+
     }
 
     public static String padLeading(String s, int len, char ch)
