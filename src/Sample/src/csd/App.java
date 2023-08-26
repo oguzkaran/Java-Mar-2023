@@ -1,20 +1,31 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Homework-008-7.sorunun bir çözümü
-    (Not: Çözüm çalışma sorusunun verildiği tarihte işlenmiş konulara göre yazılmıştır)
-----------------------------------------------------------------------------------------------------------------------*/
+ 	String sınıfının contains metodu, parametresi ile aldığı yazının, countString'in çağrılmasında
+ 	kullanılan referansa ilişkin yazının içerisinde var olup olmadığını test etmek için kullanılabilir.
+ 	Anahtar Notlar: contains metodunun metodu CharSequence türündendir. Argüman olarak String referansı
+ 	geçilebilir. Detaylar ileride ele alınacaktır
+-----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
-    public static void main(String[] args)
+    public static void main(String [] args)
     {
-        StringUtilIsIdentifierTest.run();
+        IsPangramTest.run();
     }
 }
 
-class StringUtilIsIdentifierTest {
+class IsPangramTest {
     public static void run()
     {
         java.util.Scanner kb = new java.util.Scanner(System.in);
+
+        IsPangramTRTest.run(kb);
+        IsPangramENTest.run(kb);
+    }
+}
+
+class IsPangramTRTest {
+    public static void run(java.util.Scanner kb)
+    {
 
         while (true) {
             System.out.print("Bir yazı giriniz:");
@@ -23,28 +34,46 @@ class StringUtilIsIdentifierTest {
             if ("elma".equals(s))
                 break;
 
-            System.out.println(StringUtil.isIdentifier(s) ? "Geçerli" : "Geçersiz");
+            System.out.println(StringUtil.isPangramTR(s) ? "Pangram" : "Pangram değil");
+        }
+    }
+}
+
+class IsPangramENTest {
+    public static void run(java.util.Scanner kb)
+    {
+
+        while (true) {
+            System.out.print("Input a text:");
+            String s = kb.nextLine();
+
+            if ("quit".equals(s))
+                break;
+
+            System.out.println(StringUtil.isPangramEN(s) ? "Pangram" : "Not a pangram");
         }
     }
 }
 
 class StringUtil {
-    public static boolean isIdentifier(String s)
+    public static boolean isPangramEN(String s)
     {
-        if (s.isBlank() || s.equals("_"))
-            return false;
+        return isPangram(s.toLowerCase(), "abcdefghijklmnopqrstuvwxyz");
+    }
 
-        char first = s.charAt(0);
+    public static boolean isPangramTR(String s)
+    {
+        return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
+    }
 
-        if (!Character.isLetter(first) && first != '_' && first != '$')
-            return false;
+    public static boolean isPangram(String s, String alphabet)
+    {
+        int len = alphabet.length();
 
-        int len = s.length();
+        for (int i = 0; i < len; ++i) {
+            char c = alphabet.charAt(i);
 
-        for (int i = 1; i < len; ++i) {
-           char c = s.charAt(i);
-
-            if (!Character.isLetter(c) && !Character.isDigit(c) && c != '_' && c != '$')
+            if (!s.contains(c + ""))
                 return false;
         }
 
