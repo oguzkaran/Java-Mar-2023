@@ -345,7 +345,12 @@ public class StringUtil {
 
     public static String join(String [] str, String separator)
     {
-        //TODO
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < str.length; ++i)
+            sb.append(str[i]).append(separator);
+
+        return sb.substring(0, sb.length() - separator.length());
     }
 
     public static String padLeading(String s, int len, char ch)
