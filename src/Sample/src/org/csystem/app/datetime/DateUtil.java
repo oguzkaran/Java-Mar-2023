@@ -1,6 +1,13 @@
 package org.csystem.app.datetime;
 
 public class DateUtil {
+	public static int [] daysOfMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	public static String [] daysOfWeekTR = {"Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"};
+	public static String [] daysOfWeekEN = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+	public static String [] monthsTR = {"", "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+			"Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"};
+	public static String [] monthsEN = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
 	public static void printDateTR(int day, int month, int year)
 	{
 		int dayOfWeek = getDayOfWeek(day, month, year);	
@@ -10,27 +17,31 @@ public class DateUtil {
 			return;
 		}
 	
-		System.out.printf("%02d/%02d/%04d %s%n", day, month, year, getDayOfWeekStr(dayOfWeek));
+		System.out.printf("%d %s %d %s%n", day, monthsTR[month], year, daysOfWeekTR[dayOfWeek]);
 		
 		if (dayOfWeek == 0 || dayOfWeek == 6)
 			System.out.println("Bugün kurs var. Tekrar yaptınız mı?");
 		else
 			System.out.println("Kurs günü yaklaşıyor. Tekrar yapmayı unutmayınız!...");
 	}
-	
-	public static String getDayOfWeekStr(int dayOfWeek)
+
+	public static void printDateEN(int day, int month, int year)
 	{
-		return switch (dayOfWeek) {
-				case 0 -> "Pazar";
-				case 1 -> "Pazartesi";
-				case 2 -> "Salı";
-				case 3 -> "Çarşamba";
-				case 4 -> "Perşembe";
-				case 5 -> "Cuma";
-				default -> "Cumartesi";
-				};
+		int dayOfWeek = getDayOfWeek(day, month, year);
+
+		if (dayOfWeek == -1) {
+			System.out.println("Invalid Date!...");
+			return;
+		}
+
+		System.out.printf("%d%s %s %d %s%n", day, getDaySuffix(day), monthsEN[month], year, daysOfWeekEN[dayOfWeek]);
+
+		if (dayOfWeek == 0 || dayOfWeek == 6)
+			System.out.println("That is the course day. Dis you review?");
+		else
+			System.out.println("Course day is coming. Do not forget to review!...");
 	}
-	
+
 	public static int getDayOfWeek(int day, int month, int year)
 	{		
 		int totalDays = getDayOfYear(day, month, year);
@@ -42,6 +53,16 @@ public class DateUtil {
 			totalDays += isLeapYear(y) ? 366 : 365;
 		
 		return totalDays % 7;		
+	}
+
+	public static String getDaySuffix(int day)
+	{
+		return switch (day) {
+			case 1, 21, 31 -> "st";
+			case 2, 22 -> "nd";
+			case 3, 23 -> "rd";
+			default -> "th";
+		};
 	}
 	
 	public static boolean isWeekend(int day, int month, int year)
@@ -60,35 +81,13 @@ public class DateUtil {
 	{
 		if (!isValidDate(day, month, year))
 			return -1;
-		
+
 		int dayOfYear = day;
-		
-		switch (month - 1) {
-		case 11:
-			dayOfYear += 30;
-		case 10:
-			dayOfYear += 31;
-		case 9:
-			dayOfYear += 30;
-		case 8:
-			dayOfYear += 31;
-		case 7:
-			dayOfYear += 31;
-		case 6:
-			dayOfYear += 30;
-		case 5:
-			dayOfYear += 31;
-		case 4:
-			dayOfYear += 30;
-		case 3:
-			dayOfYear += 31;
-		case 2:
-			dayOfYear += isLeapYear(year) ? 29 : 28;			
-		case 1:
-			dayOfYear += 31;
-		}
-		
-		return dayOfYear;
+
+		for (int m = month - 1; m >= 1; --m)
+			dayOfYear += daysOfMonth[m];
+
+		return (month > 2 && isLeapYear(year) ? 1 : 0) + dayOfYear;
 	}
 	
 	public static boolean isValidDate(int day, int month, int year)
@@ -98,12 +97,8 @@ public class DateUtil {
 	}
 	
 	public static int getDays(int month, int year)
-	{		
-		return switch (month) {
-		case 4, 6, 9, 11 -> 30;	
-		case 2 -> isLeapYear(year) ? 29 : 28;
-		default -> 31;
-		};		
+	{
+		return month == 2 && isLeapYear(year) ? 29 : daysOfMonth[month];
 	}
 
 	public static boolean isLeapYear(int year)
