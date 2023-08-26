@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Seçerek sıralama algoritmasında dizinin en küçük elemanı bulunur, ilk eleman ile yer değiştirilir. Dizi bir daraltılır,
-	aynı şey daraltılmış dizi için de yapılır. Böylece ilerlenir
+	Sınıf Çalışması: Parametresi ile aldığı bir String dizisine ilişkin yazıları yine parametresi ile aldığı bir
+	ayraç ile birleştiren join isimli metodu yazınız ve aşağıdaki kod ile test ediniz
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -10,3 +10,4 @@ class App {
 
 	}
 }
+

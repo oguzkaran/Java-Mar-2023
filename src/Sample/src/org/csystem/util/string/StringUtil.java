@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 20th Aug 2023
+	Last UPDATE	: 26th Aug 2023
 
 	Utility class for string operations
 
@@ -68,6 +68,176 @@ public class StringUtil {
     {
         return generateRandomText(random, count, "abcçdefgğhıijklmnoöprsştuüvyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ");
     }
+    public static String getFirstLongestPalindrome(String s)
+    {
+        String result = "";
+
+        int begin = 0;
+
+        while (begin != s.length()) {
+            int end = s.length();
+
+            while (begin != end) {
+                String str = s.substring(begin, end--);
+
+                if (str.length() >= 2 && isPalindrome(str) && result.length() < str.length())
+                    result = str;
+            }
+            ++begin;
+        }
+
+        return result;
+    }
+
+    public static String getLastLongestPalindrome(String s)
+    {
+        String result = "";
+
+        int end = s.length();
+
+        while (end != 0) {
+            int begin = 0;
+
+            while (begin != end) {
+                String str = s.substring(begin++, end);
+
+                if (str.length() >= 2 && isPalindrome(str) && result.length() < str.length())
+                    result = str;
+            }
+            --end;
+        }
+
+        return result;
+    }
+
+    public static String getFirstShortestPalindrome(String s)
+    {
+        String result = s;
+
+        int begin = 0;
+
+        while (begin != s.length()) {
+            int end = s.length();
+
+            while (begin != end) {
+                String str = s.substring(begin, end--);
+
+                if (str.length() >= 2 && isPalindrome(str) && str.length() < result.length())
+                    result = str;
+            }
+            ++begin;
+        }
+
+        return result;
+
+    }
+
+    public static String getLastShortestPalindrome(String s)
+    {
+        String result = s;
+
+        int end = s.length();
+
+        while (end != 0) {
+            int begin = 0;
+
+            while (begin != end) {
+                String str = s.substring(begin++, end);
+
+                if (str.length() >= 2 && isPalindrome(str) && str.length() < result.length())
+                    result = str;
+            }
+            --end;
+        }
+
+        return result;
+    }
+
+
+    public static String getFirstPangramTR(String s)
+    {
+        String result = s;
+
+        int begin = 0;
+
+        while (begin != s.length()) {
+            int end = s.length();
+
+            while (begin != end) {
+                String str = s.substring(begin, end--);
+
+                if (str.length() >= 29 && isPangramTR(str) && str.length() < result.length())
+                    result = str;
+            }
+            ++begin;
+        }
+
+        return result;
+    }
+
+    public static String getLastPangramTR(String s)
+    {
+        String result = s;
+
+        int end = s.length();
+
+        while (end != 0) {
+            int begin = 0;
+
+            while (begin != end) {
+                String str = s.substring(begin++, end);
+
+                if (str.length() >= 29 && isPangramTR(str) && str.length() < result.length())
+                    result = str;
+            }
+            --end;
+        }
+
+        return result;
+    }
+
+    public static String getFirstPangramEN(String s)
+    {
+        String result = s;
+
+        int begin = 0;
+
+        while (begin != s.length()) {
+            int end = s.length();
+
+            while (begin != end) {
+                String str = s.substring(begin, end--);
+
+                if (str.length() >= 26 && isPangramEN(str) && str.length() < result.length())
+                    result = str;
+            }
+            ++begin;
+        }
+
+        return result;
+    }
+
+    public static String getLastPangramEN(String s)
+    {
+        String result = s;
+
+        int end = s.length();
+
+        while (end != 0) {
+            int begin = 0;
+
+            while (begin != end) {
+                String str = s.substring(begin++, end);
+
+                if (str.length() >= 26 && isPangramEN(str) && str.length() < result.length())
+                    result = str;
+            }
+            --end;
+        }
+
+        return result;
+    }
+
 
     public static boolean isAnagram(String s1, String s2)
     {
@@ -166,6 +336,16 @@ public class StringUtil {
     public static boolean isPangramTR(String s)
     {
         return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
+    }
+
+    public static String join(String [] str, char separator)
+    {
+        return join(str, String.valueOf(separator));
+    }
+
+    public static String join(String [] str, String separator)
+    {
+
     }
 
     public static String padLeading(String s, int len, char ch)

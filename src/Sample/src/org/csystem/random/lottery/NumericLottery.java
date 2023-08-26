@@ -13,7 +13,7 @@ public class NumericLottery {
             int val;
 
             while (true) {
-                val = random.nextInt(1, 49);
+                val = random.nextInt(1, 50);
 
                 if (!flags[val])
                     break;
