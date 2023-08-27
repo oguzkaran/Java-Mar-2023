@@ -382,6 +382,26 @@ public class StringUtil {
         return new StringBuilder(s).reverse().toString();
     }
 
+    public static String [] split(String s, String separators)
+    {
+        return split(s, separators, false);
+    }
+
+    public static String [] split(String s, String separators, boolean removeEmpties)
+    {
+        StringBuilder regexBuilder = new StringBuilder("[");
+
+        for (int i = 0; i < separators.length(); ++i)
+            regexBuilder.append(separators.charAt(i));
+
+        regexBuilder.append("]");
+
+        if (removeEmpties)
+            regexBuilder.append("+");
+
+        return s.split(regexBuilder.toString());
+    }
+
     public static String squeeze(String s1, String s2)
     {
         StringBuilder sb = new StringBuilder();

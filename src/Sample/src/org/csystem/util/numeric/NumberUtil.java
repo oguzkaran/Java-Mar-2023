@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 26th Aug 2023
+	Last UPDATE	: 27th Aug 2023
 	
 	Utility class for numeric operations
 	
@@ -15,6 +15,18 @@ import static java.lang.Math.*;
 public class NumberUtil {
     public static String [] ones = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
     public static String [] tens = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+
+    public static int [] digits(long val, int n)
+    {
+        val = Math.abs(val);
+        int [] result = new int[val == 0 ? 1 : (int)(Math.log10(val) / n) + 1];
+        int powOfTen = (int)Math.pow(10, n);
+
+        for (int i = result.length - 1; i >= 0; result[i] = (int)(val % powOfTen), val /= powOfTen, --i)
+            ;
+
+        return result;
+    }
 
     public static String numberToText3DigitsTR(int a, int b, int c)
     {
@@ -63,18 +75,17 @@ public class NumberUtil {
 
     public static int [] digits(long val)
     {
-        int [] result = new int[countDigits(val)];
-        val = Math.abs(val);
-
-        for (int i = result.length  - 1; i >= 0; result[i] = (int)(val % 10), val /= 10, --i)
-            ;
-
-        return result;
+        return digits(val, 1);
     }
 
     public static int [] digitsInThrees(long val)
     {
-        //TODO:
+        return digits(val, 3);
+    }
+
+    public static int [] digitsInTwos(long val)
+    {
+        return digits(val, 2);
     }
 
     public static int digitsFactorialSum(int n)

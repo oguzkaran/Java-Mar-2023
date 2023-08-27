@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 20th Aug 2023
+	Last UPDATE	: 27th Aug 2023
 
 	Utility class for array operations
 
@@ -72,6 +72,20 @@ public class ArrayUtil {
             bubbleSortDescending(a);
         else
             bubbleSortAscending(a);
+    }
+
+    public static void drawHistogram(int [] data, int n, char ch)
+    {
+        int maxVal = max(data);
+
+        for (int i = 0; i < data.length; ++i) {
+            int count = (int)Math.floor(data[i] * n / (double)maxVal);
+
+            while (count-- > 0)
+                System.out.print(ch);
+
+            System.out.println();
+        }
     }
     
     public static void fillRandomArray(Random random, int [] a, int min, int bound)
