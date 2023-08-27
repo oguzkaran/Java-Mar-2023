@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 26th Aug 2023
+	Last UPDATE	: 27th Aug 2023
 
 	Utility class for string operations
 
@@ -391,8 +391,14 @@ public class StringUtil {
     {
         StringBuilder regexBuilder = new StringBuilder("[");
 
-        for (int i = 0; i < separators.length(); ++i)
-            regexBuilder.append(separators.charAt(i));
+        for (int i = 0; i < separators.length(); ++i) {
+            char c = separators.charAt(i);
+
+            if (c == ']' || c == '[')
+                regexBuilder.append('\\');
+
+            regexBuilder.append(c);
+        }
 
         regexBuilder.append("]");
 

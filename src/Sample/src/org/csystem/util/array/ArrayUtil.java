@@ -87,7 +87,14 @@ public class ArrayUtil {
             System.out.println();
         }
     }
-    
+
+    public static void fillRandomArray(Random random, int [][] a, int min, int bound)
+    {
+        for (int i = 0; i < a.length; ++i)
+            for (int k = 0; k < a[i].length; ++k)
+                a[i][k] = random.nextInt(min, bound);
+    }
+
     public static void fillRandomArray(Random random, int [] a, int min, int bound)
     {
         for (int i = 0; i < a.length; ++i)
@@ -199,6 +206,17 @@ public class ArrayUtil {
     {
         for (int i = 0; i < a.length; ++i)
             System.out.printf("%d%n", a[i]);
+    }
+
+    public static void print(int [][] a)
+    {
+        print(1, a);
+    }
+
+    public static void print(int n, int [][] a)
+    {
+        for (int i = 0; i < a.length; ++i)
+            print(n, a[i]);
     }
 
     public static void reverse(int [] a)
