@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: MatrixUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 27th Aug 2023
+	Last UPDATE	: 2nd Sep 2023
 
 	Utility class for matrix operations
 
@@ -15,6 +15,17 @@ import org.csystem.util.array.ArrayUtil;
 import java.util.Random;
 
 public class MatrixUtil {
+    public static int[][] add(int[][] a, int [][] b)
+    {
+        int [][] total = new int[a.length][a[0].length];
+
+        for (int i = 0; i < a.length; ++i)
+            for (int j = 0; j < a[i].length; ++j)
+                total[i][j] = a[i][j] + b[i][j];
+
+        return total;
+    }
+
     public static int [][] generateRandomMatrix(Random random, int row, int col, int min, int bound)
     {
         int [][] matrix = new int[row][col];
@@ -22,5 +33,60 @@ public class MatrixUtil {
         ArrayUtil.fillRandomArray(random, matrix, min, bound);
 
         return matrix;
+    }
+
+    public static int [][] generateRandomSquareMatrix(Random random, int n, int min, int bound)
+    {
+        return generateRandomMatrix(random, n, n, min, bound);
+    }
+
+    public static boolean isMatrix(int [][] a)
+    {
+        int n = a[0].length;
+
+        for (int i = 1; i < a.length; ++i)
+            if (a[i].length != n)
+                return false;
+
+        return true;
+    }
+
+    public static boolean isSquareMatrix(int [][] a)
+    {
+        return isMatrix(a) && a.length == a[0].length;
+    }
+
+    public static int[][] subtract(int[][] a, int [][] b)
+    {
+        int [][] total = new int[a.length][a[0].length];
+
+        for (int i = 0; i < a.length; ++i)
+            for (int j = 0; j < a[i].length; ++j)
+                total[i][j] = a[i][j] - b[i][j];
+
+        return total;
+    }
+
+    public static int sumDiagonal(int [][] a)
+    {
+        int total = 0;
+
+        for (int i = 0; i < a.length; ++i)
+            total += a[i][i];
+
+        return total;
+    }
+
+    public static int [][] transposed(int [][] a)
+    {
+        int row = a.length;
+        int col = a[0].length;
+        int [][] result = new int[col][row];
+
+        for (int i = 0; i < row; ++i)
+            for (int j = 0; j < col; ++j)
+                result[j][i] = a[i][j];
+
+        return result;
     }
 }

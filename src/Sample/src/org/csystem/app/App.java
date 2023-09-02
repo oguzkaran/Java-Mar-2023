@@ -1,30 +1,21 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Java 5 ile birlikte, dizi yaratılırken ilk köşeli parantezden sonraki köşeli parantezlerin içerisinde uzunluk bilgisi
-	yazıldığında, gösterdiği diziler otomatik olarak yaratılmaktadır
+	Bir dizi dizisine ilk değer verirken ana dizitye ilişkin küme parantezi içerisinde her bir dizinin elemanı yine
+	küme parantezi içerisinde bildirilir. İçteki küme parantezlerinde new operatörünün hiç bir durumda yazılması
+	zorunlu değildir. İstenirse yazılabilir
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
 import org.csystem.util.array.ArrayUtil;
 
-import java.util.Scanner;
-
 class App {
 	public static void main(String [] args)
 	{
-		Scanner kb = new Scanner(System.in);
+		int [][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8}};
+		int [][] b = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
-		System.out.print("Satır ve sütun sayısını giriniz:");
-		int m = kb.nextInt();
-		int n = kb.nextInt();
-		int [][] a;
-
-		a = new int[m][n];
-
-		for (int i = 0; i < a.length; ++i)
-			for (int j = 0; j < a[i].length; ++j)
-				a[i][j] = i + j;
-
-		ArrayUtil.print(2, a);
+		ArrayUtil.print(a);
+		System.out.println("--------------------------------------");
+		ArrayUtil.print(b);
 	}
 }
 
