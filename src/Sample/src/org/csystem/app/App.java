@@ -1,21 +1,15 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Bir dizi dizisine ilk değer verirken ana dizitye ilişkin küme parantezi içerisinde her bir dizinin elemanı yine
-	küme parantezi içerisinde bildirilir. İçteki küme parantezlerinde new operatörünün hiç bir durumda yazılması
-	zorunlu değildir. İstenirse yazılabilir
+	Aşağıdaki örnekte String değil, bir String dizisi for-each döngü deyimi ile dolaşılmıştır
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
-
-import org.csystem.util.array.ArrayUtil;
 
 class App {
 	public static void main(String [] args)
 	{
-		int [][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8}};
-		int [][] b = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+		String [] cities = {"ankara", "istanbul", "izmir", "zonguldak"};
 
-		ArrayUtil.print(a);
-		System.out.println("--------------------------------------");
-		ArrayUtil.print(b);
+		for (String city : cities)
+			System.out.printf("%s%n", city);
 	}
 }
 

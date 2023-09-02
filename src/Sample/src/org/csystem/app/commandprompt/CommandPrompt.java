@@ -67,9 +67,9 @@ public class CommandPrompt {
 
     public static String getCommand(String cmdText)
     {
-        for (int i = 0; i < commands.length; ++i)
-            if (commands[i].startsWith(cmdText))
-                return commands[i];
+        for (String cmd : commands)
+            if (cmd.startsWith(cmdText))
+                return cmd;
 
         return "";
     }
@@ -121,7 +121,5 @@ public class CommandPrompt {
             String [] commandInfo = command.split("[ \t]+");
             parseCommand(commandInfo);
         }
-
-
     }
 }

@@ -63,12 +63,14 @@ public class ArrayUtil {
 
     public static void addBy(int [] a, int val)
     {
-        
+        for (int i = 0; i < a.length; ++i)
+            a[i] += val;
     }
 
     public static void addBy(int [][] a, int val)
     {
-
+        for (int [] array : a)
+            addBy(array, val);
     }
 
     public static void bubbleSort(int [] a)
@@ -88,8 +90,8 @@ public class ArrayUtil {
     {
         int maxVal = max(data);
 
-        for (int i = 0; i < data.length; ++i) {
-            int count = (int)Math.floor(data[i] * n / (double)maxVal);
+        for (int val : data) {
+            int count = (int)Math.floor(val * n / (double)maxVal);
 
             while (count-- > 0)
                 System.out.print(ch);
@@ -124,8 +126,8 @@ public class ArrayUtil {
     {
         int [] counts = new int[n + 1];
 
-        for (int i = 0; i < a.length; ++i)
-            ++counts[a[i]];
+        for (int val : a)
+            ++counts[val];
 
         return counts;
     }
@@ -149,6 +151,19 @@ public class ArrayUtil {
 
         return result;
     }
+
+    public static void multiplyBy(int [] a, int val)
+    {
+        for (int i = 0; i < a.length; ++i)
+            a[i] *= val;
+    }
+
+    public static void multiplyBy(int [][] a, int val)
+    {
+        for (int[] array : a)
+            multiplyBy(array, val);
+    }
+
     public static int partitionByThresholdGreater(int [] a, int threshold)
     {
         int partitionIndex = 0;
@@ -187,8 +202,8 @@ public class ArrayUtil {
     {
         String fmt = String.format("%%0%dd ", n);
 
-        for (int i = 0; i < a.length; ++i)
-            System.out.printf(fmt, a[i]);
+        for (int val : a)
+            System.out.printf(fmt, val);
 
         System.out.println();
     }
@@ -200,22 +215,22 @@ public class ArrayUtil {
 
     public static void print(int [] a, char sep, char end)
     {
-        for (int i = 0; i < a.length; ++i)
-            System.out.printf("%d%c", a[i], sep);
+        for (int val : a)
+            System.out.printf("%d%c", val, sep);
 
         System.out.print(end);
     }
 
     public static void print(double [] a)
     {
-        for (int i = 0; i < a.length; ++i)
-            System.out.printf("%f%n", a[i]);
+        for (double val : a)
+            System.out.printf("%f%n", val);
     }
 
     public static void print(long [] a)
     {
-        for (int i = 0; i < a.length; ++i)
-            System.out.printf("%d%n", a[i]);
+        for (long val : a)
+            System.out.printf("%d%n", val);
     }
 
     public static void print(int [][] a)
@@ -225,8 +240,8 @@ public class ArrayUtil {
 
     public static void print(int n, int [][] a)
     {
-        for (int i = 0; i < a.length; ++i)
-            print(n, a[i]);
+        for (int[] array : a)
+            print(n, array);
     }
 
     public static void reverse(int [] a)
@@ -260,12 +275,22 @@ public class ArrayUtil {
             selectionSortAscending(a);
     }
 
+    public static void subtractBy(int [] a, int val)
+    {
+        addBy(a, -val);
+    }
+
+    public static void subtractBy(int [][] a, int val)
+    {
+        addBy(a, -val);
+    }
+
     public static int sum(int [] a)
     {
         int total = 0;
 
-        for (int i = 0; i < a.length; ++i)
-            total += a[i];
+        for (int val : a)
+            total += val;
 
         return total;
     }

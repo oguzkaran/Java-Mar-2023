@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 27th Aug 2023
+	Last UPDATE	: 2nd Sep 2023
 
 	Utility class for string operations
 
@@ -347,8 +347,8 @@ public class StringUtil {
     {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < str.length; ++i)
-            sb.append(str[i]).append(separator);
+        for (String s : str)
+            sb.append(s).append(separator);
 
         return sb.substring(0, sb.length() - separator.length());
     }
