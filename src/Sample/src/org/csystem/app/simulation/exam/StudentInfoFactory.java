@@ -5,27 +5,27 @@ import java.util.Random;
 import static org.csystem.util.string.StringUtil.generateRandomTextEN;
 
 public class StudentInfoFactory {
-    public Random random;
+    private Random m_random;
 
     public StudentInfoFactory()
     {
-        random = new Random();
+        m_random = new Random();
     }
 
-    public StudentInfoFactory(Random r)
+    public StudentInfoFactory(Random random)
     {
-        random = r;
+        m_random = random;
     }
 
     public StudentInfo createStudentInfo(String lectureName)
     {
         StudentInfo studentInfo = new StudentInfo();
 
-        studentInfo.name = String.format("%s %s", generateRandomTextEN(random, random.nextInt(5, 11)),
-                generateRandomTextEN(random, random.nextInt(5, 11)));
-        studentInfo.lectureName = lectureName;
-        studentInfo.midtermGrade = random.nextInt(0, 101);
-        studentInfo.finalGrade = random.nextInt(0, 101);
+        studentInfo.setName(String.format("%s %s", generateRandomTextEN(m_random, m_random.nextInt(5, 11)),
+                generateRandomTextEN(m_random, m_random.nextInt(5, 11))));
+        studentInfo.setLectureName(lectureName);
+        studentInfo.setMidtermGrade(m_random.nextInt(0, 101));
+        studentInfo.setFinalGrade(m_random.nextInt(0, 101));
 
         return studentInfo;
     }

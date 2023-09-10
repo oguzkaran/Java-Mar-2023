@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: Point.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 12th Aug 2023
+	Last UPDATE	: 10th Sep 2023
 	
 	Point class that represents a point in cartesian plane
 	
@@ -10,28 +10,54 @@
 -------------------------------------------------------------*/
 package org.csystem.math.geometry;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
+import static java.lang.Math.*;
 
 public class Point {
-	public double x;
-	public double y;
-	
-	public Point()
-	{		
-	}
-	
-	public Point(double a) 
+	private double m_x;
+	private double m_y;
+
+	private Point(double a, double b, boolean polar)
 	{
-		x = a;		
+		if (polar) {
+			m_x = a * cos(b);
+			m_y = a * sin(b);
+		}
+		else {
+			m_x = a;
+			m_y = b;
+		}
 	}
-	
-	public Point(double a, double b)
+
+	public static Point createCartesian(double a, double b)
 	{
-		x = a;
-		y = b;
+		return new Point(a, b, false);
 	}
-	
+
+	public static Point createPolar(double radius, double theta)
+	{
+		return new Point(radius, theta, true);
+	}
+
+	public double getX()
+	{
+		return m_x;
+	}
+
+	public void setX(double x)
+	{
+		m_x = x;
+	}
+
+	public double getY()
+	{
+		return m_y;
+	}
+
+	public void setY(double y)
+	{
+		m_y = y;
+	}
+
 	public double distance()
 	{
 		return distance(0, 0);
@@ -39,12 +65,12 @@ public class Point {
 	
 	public double distance(Point other)
 	{
-		return distance(other.x, other.y);
+		return distance(other.m_x, other.m_y);
 	}
 	
 	public double distance(double a, double b)
 	{
-		return sqrt(pow(x - a, 2) + pow(y - b, 2));
+		return sqrt(pow(m_x - a, 2) + pow(m_y - b, 2));
 	}
 	
 	public void offset(double dxy)
@@ -54,12 +80,12 @@ public class Point {
 	
 	public void offset(double dx, double dy)
 	{
-		x += dx;
-		y += dy;
+		m_x += dx;
+		m_y += dy;
 	}
 	
 	public String toString()
 	{
-		return String.format("(%f, %f", x, y);
+		return String.format("(%f, %f)", m_x, m_y);
 	}
 }

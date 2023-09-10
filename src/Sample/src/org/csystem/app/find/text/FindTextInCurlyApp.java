@@ -20,7 +20,7 @@ public class FindTextInCurlyApp {
 
             findTextInCurly.parse();
 
-            System.out.printf("%s%n", findTextInCurly.isValid ? findTextInCurly.result : "yanlış bir giriş");
+            System.out.printf("%s%n", findTextInCurly.isValid() ? findTextInCurly.getResult() : "yanlış bir giriş");
         }
     }
 

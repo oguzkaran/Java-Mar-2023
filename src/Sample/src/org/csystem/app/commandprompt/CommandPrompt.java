@@ -5,10 +5,10 @@ import org.csystem.util.string.StringUtil;
 import java.util.Scanner;
 
 public class CommandPrompt {
-    public static String [] commands = {"length", "reverse", "upper", "lower", "change", "quit"};
-    public String prompt;
+    private static String [] ms_commands = {"length", "reverse", "upper", "lower", "change", "quit"};
+    private String m_prompt;
 
-    public static void doForLength(String [] commandInfo)
+    private static void doForLength(String [] commandInfo)
     {
         if (commandInfo.length != 2) {
             System.out.printf("%s command must have 1 argument%n", commandInfo[0]);
@@ -18,7 +18,7 @@ public class CommandPrompt {
         System.out.println(commandInfo[1].length());
     }
 
-    public static void doForReverse(String [] commandInfo)
+    private static void doForReverse(String [] commandInfo)
     {
         if (commandInfo.length != 2) {
             System.out.printf("%s command must have 1 argument%n", commandInfo[0]);
@@ -28,7 +28,7 @@ public class CommandPrompt {
         System.out.println(StringUtil.reverse(commandInfo[1]));
     }
 
-    public static void doForUpper(String [] commandInfo)
+    private static void doForUpper(String [] commandInfo)
     {
         if (commandInfo.length != 2) {
             System.out.printf("%s command must have 1 argument%n", commandInfo[0]);
@@ -38,7 +38,7 @@ public class CommandPrompt {
         System.out.println(commandInfo[1].toUpperCase());
     }
 
-    public static void doForLower(String [] commandInfo)
+    private static void doForLower(String [] commandInfo)
     {
         if (commandInfo.length != 2) {
             System.out.printf("%s command must have 1 argument%n", commandInfo[0]);
@@ -48,33 +48,33 @@ public class CommandPrompt {
         System.out.println(commandInfo[1].toLowerCase());
     }
 
-    public static void doForQuit(String [] commandInfo)
+    private static void doForQuit(String [] commandInfo)
     {
         System.out.println("C and System Programmers Association");
         System.out.println("Thank you!...");
         System.exit(0);
     }
 
-    public void doForChange(String [] commandInfo)
+    private void doForChange(String [] commandInfo)
     {
         if (commandInfo.length != 2) {
             System.out.printf("%s command must have 1 argument%n", commandInfo[0]);
             return;
         }
 
-        prompt = commandInfo[1];
+        m_prompt = commandInfo[1];
     }
 
-    public static String getCommand(String cmdText)
+    private static String getCommand(String cmdText)
     {
-        for (String cmd : commands)
+        for (String cmd : ms_commands)
             if (cmd.startsWith(cmdText))
                 return cmd;
 
         return "";
     }
 
-    public void doForCommand(String [] commandInfo)
+    private void doForCommand(String [] commandInfo)
     {
         switch (commandInfo[0]) {
             case "length" -> doForLength(commandInfo);
@@ -86,7 +86,7 @@ public class CommandPrompt {
         }
     }
 
-    public void doCommand(String [] commandInfo)
+    private void doCommand(String [] commandInfo)
     {
         String command = getCommand(commandInfo[0]);
 
@@ -98,7 +98,7 @@ public class CommandPrompt {
             System.out.println("Invalid command!...");
     }
 
-    public void parseCommand(String [] commandInfo)
+    private void parseCommand(String [] commandInfo)
     {
         if (commandInfo[0].length() > 2)
             doCommand(commandInfo);
@@ -108,7 +108,17 @@ public class CommandPrompt {
 
     public CommandPrompt(String p)
     {
-        prompt = p;
+        m_prompt = p;
+    }
+
+    public String getPrompt()
+    {
+        return m_prompt;
+    }
+
+    public void setPrompt(String prompt)
+    {
+        this.m_prompt = prompt;
     }
 
     public void run()
@@ -116,7 +126,7 @@ public class CommandPrompt {
         Scanner kb = new Scanner(System.in);
 
         while (true) {
-            System.out.print(prompt + ">");
+            System.out.print(m_prompt + ">");
             String command = kb.nextLine().strip();
             String [] commandInfo = command.split("[ \t]+");
             parseCommand(commandInfo);

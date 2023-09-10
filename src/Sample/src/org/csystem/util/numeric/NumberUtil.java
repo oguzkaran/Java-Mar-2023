@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 27th Aug 2023
+	Last UPDATE	: 10th Sep 2023
 	
 	Utility class for numeric operations
 	
@@ -13,10 +13,15 @@ package org.csystem.util.numeric;
 import static java.lang.Math.*;
 
 public class NumberUtil {
-    public static String [] ones = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
-    public static String [] tens = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+    private static String [] ms_ones = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+    private static String [] ms_tens = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
 
-    public static int [] digits(long val, int n)
+    private NumberUtil()
+    {
+
+    }
+
+    private static int [] digits(long val, int n)
     {
         val = Math.abs(val);
         int [] result = new int[val == 0 ? 1 : (int)(Math.log10(val) / n) + 1];
@@ -28,27 +33,27 @@ public class NumberUtil {
         return result;
     }
 
-    public static String numberToText3DigitsTR(int a, int b, int c)
+    private static String numberToText3DigitsTR(int a, int b, int c)
     {
         StringBuilder sb = new StringBuilder();
 
         if (a != 0) {
             if (a != 1)
-                sb.append(ones[a]);
+                sb.append(ms_ones[a]);
 
             sb.append("yüz");
         }
 
         if (b != 0)
-            sb.append(tens[b]);
+            sb.append(ms_tens[b]);
 
         if (c != 0)
-            sb.append(ones[c]);
+            sb.append(ms_ones[c]);
 
         return sb.toString();
     }
 
-    public static String numberToText3DigitsTR(int val)
+    private static String numberToText3DigitsTR(int val)
     {
         return val == 0 ? "sıfır" : (val < 0 ? "eksi" : "") + numberToText3DigitsTR(Math.abs(val / 100), Math.abs(val / 10 % 10), Math.abs(val % 10));
     }

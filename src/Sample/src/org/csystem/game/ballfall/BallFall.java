@@ -1,22 +1,22 @@
 package org.csystem.game.ballfall;
 
 public class BallFall {
-	public String pattern;
+	private String m_pattern;
 
-	public static void fillSpace(int begin, int end, StringBuilder sb)
+	private static void fillSpace(int begin, int end, StringBuilder sb)
 	{
 		for (int i = begin; i < end; ++i)
 			sb.append(' ');
 	}
 	
-	public static void fillBall(int ballIndex, int end, StringBuilder sb)
+	private static void fillBall(int ballIndex, int end, StringBuilder sb)
 	{
 		fillSpace(0, ballIndex, sb);
 		sb.append('*');
 		fillSpace(ballIndex + 1, end, sb);
 	}
-	
-	public static boolean updateRightFlag(boolean right, int ballIndex, int width)
+
+	private static boolean updateRightFlag(boolean right, int ballIndex, int width)
 	{
 		if (ballIndex == 0)
 			right = true;
@@ -25,15 +25,21 @@ public class BallFall {
 			
 		return right;
 	}
-	
-	public static int updateBallIndex(int ballIndex, boolean right)
+
+	private static int updateBallIndex(int ballIndex, boolean right)
 	{
 		if (right)
 			return ballIndex + 1;
 		
 		return ballIndex - 1;
 	}
-	
+
+
+	public String getPattern()
+	{
+		return m_pattern;
+	}
+
 	public void play(int width, int height)
 	{
 		boolean right = false;
@@ -51,6 +57,6 @@ public class BallFall {
 			sb.append("|\r\n");
 		}
 
-		pattern = sb.toString();
+		m_pattern = sb.toString();
 	}
 }

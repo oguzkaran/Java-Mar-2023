@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: Complex.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 12th Aug 2023
+	Last UPDATE	: 10th Sep 2023
 	
 	Complex class that represents a complex number
 	
@@ -14,20 +14,20 @@ import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 
 public class Complex {
-	public double real;
-	public double imag;
+	private double m_real;
+	private double m_imag;
 	
-	public static Complex add(double a1, double b1, double a2, double b2)
+	private static Complex add(double a1, double b1, double a2, double b2)
 	{
 		return new Complex(a1 + a2, b1 + b2);
 	}
 	
-	public static Complex subtract(double a1, double b1, double a2, double b2)
+	private static Complex subtract(double a1, double b1, double a2, double b2)
 	{
 		return add(a1, b1, -a2, -b2);
 	}
 	
-	public static Complex multiply(double a1, double b1, double a2, double b2)
+	private static Complex multiply(double a1, double b1, double a2, double b2)
 	{
 		return new Complex(a1 * a2 - b1 * b2, a1 * b2 + a2 * b1);
 	}
@@ -38,18 +38,18 @@ public class Complex {
 	
 	public Complex(double re)
 	{
-		real = re;		
+		m_real = re;
 	}
 	
 	public Complex(double re, double im)
 	{
-		real = re;
-		imag = im;
+		m_real = re;
+		m_imag = im;
 	}
 	
 	public double getLength()
 	{
-		return sqrt(real * real + imag * imag);
+		return sqrt(m_real * m_real + m_imag * m_imag);
 	}
 	
 	public double getNorm()
@@ -59,52 +59,52 @@ public class Complex {
 	
 	public Complex getConjugate()
 	{
-		return new Complex(real, -imag);
+		return new Complex(m_real, -m_imag);
 	}
 	
 	public static Complex add(double val, Complex z)
 	{
-		return add(val, 0, z.real, z.imag);
+		return add(val, 0, z.m_real, z.m_imag);
 	}
 	
 	public Complex add(double val)
 	{
-		return add(real, imag, val, 0);
+		return add(m_real, m_imag, val, 0);
 	}
 	
 	public Complex add(Complex other)
 	{
-		return add(real, imag, other.real, other.imag);
+		return add(m_real, m_imag, other.m_real, other.m_imag);
 	}
 	
 	public static Complex subtract(double val, Complex z)
 	{
-		return subtract(val, 0, z.real, z.imag);
+		return subtract(val, 0, z.m_real, z.m_imag);
 	}
 	
 	public Complex subtract(double val)
 	{
-		return subtract(real, imag, val, 0);
+		return subtract(m_real, m_imag, val, 0);
 	}
 	
 	public Complex subtract(Complex other)
 	{
-		return subtract(real, imag, other.real, other.imag);
+		return subtract(m_real, m_imag, other.m_real, other.m_imag);
 	}
 	
 	public static Complex multiply(double val, Complex z)
 	{
-		return multiply(val, 0, z.real, z.imag);
+		return multiply(val, 0, z.m_real, z.m_imag);
 	}
 	
 	public Complex multiply(double val)
 	{
-		return multiply(real, imag, val, 0);
+		return multiply(m_real, m_imag, val, 0);
 	}
 	
 	public Complex multiply(Complex other)
 	{
-		return subtract(real, imag, other.real, other.imag);
+		return subtract(m_real, m_imag, other.m_real, other.m_imag);
 	}
 	
 	public void inc()
@@ -114,7 +114,7 @@ public class Complex {
 	
 	public void inc(double val)
 	{
-		real += val;
+		m_real += val;
 	}
 	
 	public void dec(double val)
@@ -131,11 +131,11 @@ public class Complex {
 	{
 		double DELTA = 0.000001;
 		
-		return abs(real - other.real) < DELTA && abs(imag - other.imag) < DELTA;
+		return abs(m_real - other.m_real) < DELTA && abs(m_imag - other.m_imag) < DELTA;
 	}
 	
 	public String toString()
 	{
-		return String.format("(%f, %f)", real, imag);
+		return String.format("(%f, %f)", m_real, m_imag);
 	}
 }

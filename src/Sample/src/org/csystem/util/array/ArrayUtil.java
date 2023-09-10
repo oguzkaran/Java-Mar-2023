@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 2nd Sep 2023
+	Last UPDATE	: 10th Sep 2023
 
 	Utility class for array operations
 
@@ -13,7 +13,10 @@ package org.csystem.util.array;
 import java.util.Random;
 
 public class ArrayUtil {
-    public static void bubbleSortAscending(int [] a)
+    private ArrayUtil()
+    {}
+
+    private static void bubbleSortAscending(int [] a)
     {
         for (int i = 0; i < a.length - 1; ++i)
             for (int k = 0; k < a.length - 1 - i; ++k)
@@ -21,7 +24,7 @@ public class ArrayUtil {
                     swap(a, k, k + 1);
     }
 
-    public static void bubbleSortDescending(int [] a)
+    private static void bubbleSortDescending(int [] a)
     {
         for (int i = 0; i < a.length - 1; ++i)
             for (int k = 0; k < a.length - 1 - i; ++k)
@@ -29,7 +32,7 @@ public class ArrayUtil {
                     swap(a, k, k + 1);
     }
 
-    public static void selectionSortAscending(int [] a)
+    private static void selectionSortAscending(int [] a)
     {
         for (int i = 0; i < a.length - 1; ++i) {
             int min = a[i];
@@ -45,7 +48,7 @@ public class ArrayUtil {
         }
     }
 
-    public static void selectionSortDescending(int [] a)
+    private static void selectionSortDescending(int [] a)
     {
         for (int i = 0; i < a.length - 1; ++i) {
             int max = a[i];

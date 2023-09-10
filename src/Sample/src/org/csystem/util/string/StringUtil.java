@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 2nd Sep 2023
+	Last UPDATE	: 10th Sep 2023
 
 	Utility class for string operations
 
@@ -10,10 +10,11 @@
 -------------------------------------------------------------*/
 package org.csystem.util.string;
 
-
 import java.util.Random;
 
 public class StringUtil {
+    private StringUtil()
+    {}
     public static String capitalize(String s)
     {
         return s.isEmpty() ? "" : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();

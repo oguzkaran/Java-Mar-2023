@@ -20,7 +20,7 @@ public class BallFallConsoleApp {
 			
 			ballFall.play(width, height);
 
-			System.out.println(ballFall.pattern);
+			System.out.println(ballFall.getPattern());
 		}	
 	}
 
