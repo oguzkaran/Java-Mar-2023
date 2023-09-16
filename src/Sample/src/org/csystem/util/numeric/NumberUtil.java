@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 10th Sep 2023
+	Last UPDATE	: 16th Sep 2023
 	
 	Utility class for numeric operations
 	
@@ -13,12 +13,11 @@ package org.csystem.util.numeric;
 import static java.lang.Math.*;
 
 public class NumberUtil {
-    private static String [] ms_ones = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
-    private static String [] ms_tens = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+    private static final String [] ONES = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+    private static final String [] TENS = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
 
     private NumberUtil()
     {
-
     }
 
     private static int [] digits(long val, int n)
@@ -39,16 +38,16 @@ public class NumberUtil {
 
         if (a != 0) {
             if (a != 1)
-                sb.append(ms_ones[a]);
+                sb.append(ONES[a]);
 
             sb.append("yüz");
         }
 
         if (b != 0)
-            sb.append(ms_tens[b]);
+            sb.append(TENS[b]);
 
         if (c != 0)
-            sb.append(ms_ones[c]);
+            sb.append(ONES[c]);
 
         return sb.toString();
     }

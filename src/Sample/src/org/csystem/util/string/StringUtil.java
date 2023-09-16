@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 10th Sep 2023
+	Last UPDATE	: 16th Sep 2023
 
 	Utility class for string operations
 
@@ -13,6 +13,13 @@ package org.csystem.util.string;
 import java.util.Random;
 
 public class StringUtil {
+    private static final String LETTERS_EN = "abcdefghijklmnopqrstuvwxyz";
+    private static final String LETTERS_TR = "abcçdefgğhıijklmnoöprsştuüvyz";
+    private static final String CAPITAL_LETTERS_EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String CAPITAL_LETTERS_TR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+    private static final String ALL_LETTERS_TR = LETTERS_TR + CAPITAL_LETTERS_TR;
+    private static final String ALL_LETTERS_EN = LETTERS_EN + CAPITAL_LETTERS_EN;
+
     private StringUtil()
     {}
     public static String capitalize(String s)
@@ -62,12 +69,12 @@ public class StringUtil {
 
     public static String generateRandomTextEN(Random random, int count)
     {
-        return generateRandomText(random, count, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        return generateRandomText(random, count, ALL_LETTERS_EN);
     }
 
     public static String generateRandomTextTR(Random random, int count)
     {
-        return generateRandomText(random, count, "abcçdefgğhıijklmnoöprsştuüvyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ");
+        return generateRandomText(random, count, ALL_LETTERS_TR);
     }
     public static String getFirstLongestPalindrome(String s)
     {
@@ -331,12 +338,12 @@ public class StringUtil {
 
     public static boolean isPangramEN(String s)
     {
-        return isPangram(s.toLowerCase(), "abcdefghijklmnopqrstuvwxyz");
+        return isPangram(s.toLowerCase(), LETTERS_EN);
     }
 
     public static boolean isPangramTR(String s)
     {
-        return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
+        return isPangram(s.toLowerCase(), LETTERS_TR);
     }
 
     public static String join(String [] str, char separator)

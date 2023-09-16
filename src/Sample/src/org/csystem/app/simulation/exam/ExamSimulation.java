@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ExamSimulation {
-    private String m_lectureName;
+    private final String m_lectureName;
     private StudentInfo [][] m_students;
     private double [] m_gradeAverages;
     private int [] m_successCounts;
@@ -14,7 +14,7 @@ public class ExamSimulation {
     private int m_totalSuccess;
     private int m_totalFail;
 
-    public void readClassInformation()
+    private void readClassInformation()
     {
         Scanner kb = new Scanner(System.in);
 
@@ -30,7 +30,7 @@ public class ExamSimulation {
         }
     }
 
-    public void generateStudents()
+    private void generateStudents()
     {
         Random random = new Random();
 
@@ -60,7 +60,7 @@ public class ExamSimulation {
         }
     }
 
-    public void doSimulation()
+    private void doSimulation()
     {
         readClassInformation();
         generateStudents();
@@ -69,6 +69,41 @@ public class ExamSimulation {
     public ExamSimulation(String lectureName)
     {
         m_lectureName = lectureName;
+    }
+
+    public StudentInfo getStudentInfo(int i, int k)
+    {
+        return m_students[i][k];
+    }
+
+    public double getAverage(int i)
+    {
+        return m_gradeAverages[i];
+    }
+
+    public double getAverage()
+    {
+        return m_average;
+    }
+
+    public int getSuccessCount(int i)
+    {
+        return m_successCounts[i];
+    }
+
+    public int getFailCount(int i)
+    {
+        return m_failCounts[i];
+    }
+
+    public int getTotalSuccess()
+    {
+        return m_totalSuccess;
+    }
+
+    public int getTotalFail()
+    {
+        return m_totalFail;
     }
 
     public void printStudents()

@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: Point.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 10th Sep 2023
+	Last UPDATE	: 16th Sep 2023
 	
 	Point class that represents a point in cartesian plane
 	
@@ -28,9 +28,9 @@ public class Point {
 		}
 	}
 
-	public static Point createCartesian(double a, double b)
+	public static Point createCartesian(double x, double y)
 	{
-		return new Point(a, b, false);
+		return new Point(x, y, false);
 	}
 
 	public static Point createPolar(double radius, double theta)

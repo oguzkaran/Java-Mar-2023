@@ -5,7 +5,7 @@ import org.csystem.util.string.StringUtil;
 import java.util.Scanner;
 
 public class CommandPrompt {
-    private static String [] ms_commands = {"length", "reverse", "upper", "lower", "change", "quit"};
+    private static final String [] COMMANDS = {"length", "reverse", "upper", "lower", "change", "quit"};
     private String m_prompt;
 
     private static void doForLength(String [] commandInfo)
@@ -67,7 +67,7 @@ public class CommandPrompt {
 
     private static String getCommand(String cmdText)
     {
-        for (String cmd : ms_commands)
+        for (String cmd : COMMANDS)
             if (cmd.startsWith(cmdText))
                 return cmd;
 
