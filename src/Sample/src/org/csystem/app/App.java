@@ -1,39 +1,20 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	
+
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
-import org.csystem.util.array.ArrayUtil;
-
-import java.util.Random;
+import org.csystem.wrapper.IntValue;
 
 class App {
 	public static void main(String [] args)
 	{
-		RandomArrayGenerator generator = new RandomArrayGenerator(new Random(), 10, 10, 21);
+		IntValue iVal1 = IntValue.of(10);
+		IntValue iVal2 = IntValue.of(10);
+		IntValue iVal3 = IntValue.of(128);
+		IntValue iVal4 = IntValue.of(128);
 
-		for (int i = 0; i < generator.length(); ++i)
-			System.out.printf("%d ", generator.get(i));
-
-		System.out.println();
+		System.out.println(iVal1 == iVal2 ? "Aynı nesne" : "Farklı nesneler");
+		System.out.println(iVal3 == iVal4 ? "Aynı nesne" : "Farklı nesneler");
 	}
 }
 
-class RandomArrayGenerator {
-	private final int [] m_data;
-
-	public RandomArrayGenerator(Random random, int count, int min, int bound)
-	{
-		m_data = ArrayUtil.generateRandomArray(random, count, min, bound);
-	}
-
-	public int length()
-	{
-		return m_data.length;
-	}
-
-	public int get(int index)
-	{
-		return m_data[index];
-	}
-}
