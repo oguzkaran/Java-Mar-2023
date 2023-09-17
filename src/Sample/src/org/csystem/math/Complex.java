@@ -1,3 +1,7 @@
+/*----------------------------------------------------------------------------------------------------------------------
+	Sınıf Çalışması: Aşağıdaki Complex sınıfını immutable olarak değiştirip, MutableComplax sınıfını da yazınız
+----------------------------------------------------------------------------------------------------------------------*/
+
 /*-------------------------------------------------------------
 	FILE		: Complex.java
 	AUTHOR		: Java-Mar-2023 Group
@@ -35,7 +39,8 @@ public class Complex {
 	public Complex()
 	{
 	}
-	
+
+
 	public Complex(double re)
 	{
 		m_real = re;
@@ -46,7 +51,27 @@ public class Complex {
 		m_real = re;
 		m_imag = im;
 	}
-	
+
+	public double getReal()
+	{
+		return m_real;
+	}
+
+	public void setReal(double real)
+	{
+		m_real = real;
+	}
+
+	public double getImag()
+	{
+		return m_imag;
+	}
+
+	public void setImag(double imag)
+	{
+		m_imag = imag;
+	}
+
 	public double getLength()
 	{
 		return sqrt(m_real * m_real + m_imag * m_imag);
