@@ -14,7 +14,7 @@
 	+ Kesir negatif ise işaret payda bulunacaktır. Örneğin kesrin pay ve paydası sırasıyla 3 ve -4 olarak verilmişse
 	kesir -3 / 4 biçiminde tutulacaktır
 
-	+ Kesrin pay ve paydasının ikisinin birden negatif olması durumunda kesir pozitif olarak tutulacaktır
+	+ Kesrin pay ve paydasının her ikisinin birden negatif olması durumunda kesir pozitif olarak tutulacaktır
 
 	+ Kesrin payının sıfır olması durumunda payda ne olursa olsun 1(bir) yapılacaktır
 
@@ -23,12 +23,10 @@
 
 	+ Sınıfın kesri 1(bir) artıran ve bir azaltan inc ve dec metotları yazılacaktır
 
-	+ Sınıfın toString metodu şu formatta yazı döndürecek şekilde override edilecektir:
+	+ Sınıfın toString metodu şu formatta yazı döndürecek şekilde yazılacaktır:
 	    3 / 10 kesri için -> 3 / 10 = 3.333333
 	    10 / 1 kesri için -> 10
-
-	+ Object sınıfının equals metodu iki kesir eşit ise true, eşit değilse false değerine geri dönecektir.
-	Eğer equals'a geçilen referansın dinamik türü Fraction'ı kapsamıyorsa false değerine geri dönecektir
+	 Ondalık kısımda 6 basamak gösterilecektir. Geri kalan basamaklar yuvarlanacaktır
 
 	+ Sınıfın default ctor'u "0 / 1" kesrini temsil eden nesneyi yaratmak için kullanılabilecektir
 
@@ -144,11 +142,6 @@
              throw new UnsupportedOperationException("TODO:");
          }
 
-         public boolean equals(Object other)
-         {
-             throw new UnsupportedOperationException("TODO:");
-         }
-
          public String toString()
          {
              throw new UnsupportedOperationException("TODO:");
@@ -260,11 +253,6 @@ public class Fraction {
     }
 
     public int compareTo(Fraction other)
-    {
-        throw new UnsupportedOperationException("TODO:");
-    }
-
-    public boolean equals(Object other)
     {
         throw new UnsupportedOperationException("TODO:");
     }
