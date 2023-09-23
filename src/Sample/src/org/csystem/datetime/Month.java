@@ -1,12 +1,25 @@
+/*-------------------------------------------------------------
+	FILE		: Month.java
+	AUTHOR		: Java-Mar-2023 Group
+	Last UPDATE	: 23rd Sep 2023
+
+	Month enum class
+
+	Copyleft (c) 1993 C and System Programmers Association
+	All Right Free
+-------------------------------------------------------------*/
 package org.csystem.datetime;
 
 public enum Month {
-	JAN(31), FEB(28), MAR(31), APR(30), MAY(31), JUN(30), JUL(31), AUG(31), SEP(30), OCT(31), NOV(30), DEC(31);
+	JAN(31, "Ocak"), FEB(28, "Şubat"), MAR(31, "Mart"), APR(30, "Nisan"), MAY(31, "Mayıs"), JUN(30, "Haziran"),
+	JUL(31, "Temmuz"), AUG(31, "Ağustos"), SEP(30, "Eylül"), OCT(31, "Ekim"), NOV(30, "Kasım"), DEC(31, "Aralık");
 	private final int m_days;
-	
-	Month(int days)
+	private final String m_nameTR;
+
+	Month(int days, String nameTR)
 	{
 		m_days = days;
+		m_nameTR = nameTR;
 	}
 
 	static boolean isLeapYear(int year)
@@ -17,5 +30,10 @@ public enum Month {
 	public int getDays(int year)
 	{
 		return ordinal() == 1 && isLeapYear(year) ? 29 : m_days;
+	}
+
+	public String getNameTR()
+	{
+		return m_nameTR;
 	}
 }
