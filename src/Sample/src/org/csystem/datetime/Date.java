@@ -18,6 +18,7 @@
         - Ay bilgisini değer olarak alan veya değer olarak geri döndüren metotlar içinm değer [1, 12] aralığında olacaktır
 
         - Sınıfa ilişkin test kodlarını da yazınız
+
         - Sınıfın public metotlarındaki
 	            throw new UnsupportedOperationException("TODO:");
         deyimini silerek ilgili metodu yazabilirsiniz. Bu deyim bazı error durumlarını engellemek için eklenmiştir. Şu an
