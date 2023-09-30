@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------------------------------------------------
-
+	
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -7,49 +7,26 @@ class App {
 	public static void main(String [] args)
 	{
 		B b = new B();
-		C c = new C();
 
-		b.foo();
-		b.bar();
-		b.tar();
+		b.bar(20);
 
-		c.foo();
-		c.bar();
-		c.tar();
-		c.zar();
-	}
-}
-
-class C extends B {
-	//...
-
-	public void zar()
-	{
-		System.out.println("C.zar");
+		System.out.printf("b.a = %d%n", b.a);
 	}
 }
 
 class B extends A {
 	//...
-
-	public void tar()
+	public void bar(int x)
 	{
-		System.out.println("B.tar");
+		a = x;
+		foo();
 	}
 }
 
 class A {
-	//...
-
+	public int a;
 	public void foo()
 	{
 		System.out.println("A.foo");
 	}
-
-	public void bar()
-	{
-		System.out.println("A.bar");
-	}
-
-	//...
 }
