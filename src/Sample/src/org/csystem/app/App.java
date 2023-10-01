@@ -1,30 +1,51 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Yazılım geliştirmede bir programın (bu bir kütüphane de olabilir) yeni bir versiyonunda daha önce yazılmış olan
-	kodlarda değişiklik yapılması domain (senaryo) açısından gerekmiyorsa, programcı ne kadar az eski kodlara dokunma
-	gereği duyuyorsa o kadar kaliteli yazılmış demektir. Buna göre aşağıdaki örnekte Sample sınıfının doWork metodu
-	A ve A'dan doğrudan ya da dolaylı türeyen sınıflar açısından yalnızca A sınıfına bağımlıdır (dependency). Bu anlamda
-	doWork metodu türden bağımsız (type independent) yazılmıştır. doWork metodu çalışma zamanında aslında daha önce
-	bilmediği A'dan doğrudan ya da dolaylı olarak türemiş olan türler ile de çağrılmış olur. Bu durumda, yeni A
-	hiyerarşisine yeni bir sınıf eklendiğinde doWork metodunun kodlarında değişiklik yapılması gerekmez. Yani adeta
-	yeni eklenen sınıf iyi tasarlanmış bir lego'ya yeni parça ekler gibi ekleme yapılabilir
+	Yukarıdaki örnek aşağıdaki daha dinamik hale getirilmiştir. Burada, A heiyararşisine yeni bir sınıf eklendiğinde
+	sadece Factory sınıfına o yeni sınıf türünden nesneyi yaratacak kodlar eklendiğinde diğer hiç bir sınıfın kodlarında
+	değişiklik yapmadan uygulama yeni tür için de çalışabilecektir. Örnekteki sınıflar ayrı kütüphanelerde hatta ayrı
+	ayrı kişiler tarafından yazılmış olabilir. Bu anlamda takım çalışmasına da uygun bir yaklaşım söz konusudur
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
+
+import org.csystem.util.thread.ThreadUtil;
+
+import java.util.Random;
 
 class App {
 	public static void main(String [] args)
 	{
-		B b = new B();
-		C c = new C();
-		D d = new D();
-		A a = new A();
-		E e = new E();
-		Sample s = new Sample();
+		DemoApp.run();
+	}
+}
 
-		s.doWork(b);
-		s.doWork(c);
-		s.doWork(d);
-		s.doWork(a);
-		s.doWork(e);
+class DemoApp {
+	public static void run()
+	{
+		Factory factory = new Factory();
+		Sample sample = new Sample();
+
+		while (true) {
+			System.out.println("---------------------------------------");
+			A a = factory.create();
+
+			sample.doWork(a);
+			System.out.println("---------------------------------------");
+			ThreadUtil.sleep(1000);
+		}
+	}
+}
+
+class Factory {
+	private final Random m_random = new Random();
+
+	public A create()
+	{
+		return switch (m_random.nextInt(5)) {
+			case 0 -> new B();
+			case 1 -> new C();
+			case 2 -> new D();
+			case 3 -> new E();
+			default -> new F();
+		};
 	}
 }
 
@@ -38,20 +59,43 @@ class Sample {
 	}
 }
 
+class F extends D {
+	//...
+	public F()
+	{
+		System.out.println("F created");
+	}
+}
 class E extends C {
 	//...
+	public E()
+	{
+		System.out.println("E created");
+	}
 }
 
 class D extends A {
 	//...
+	public D()
+	{
+		System.out.println("D created");
+	}
 }
 
 class C extends B {
 	//...
+	public C()
+	{
+		System.out.println("C created");
+	}
 }
 
 class B extends A {
 	//...
+	public B()
+	{
+		System.out.println("B created");
+	}
 }
 
 class A {
