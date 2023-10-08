@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 16th Sep 2023
+	Last UPDATE	: 8th Oct 2023
 
 	Utility class for string operations
 
@@ -76,6 +76,27 @@ public class StringUtil {
     {
         return generateRandomText(random, count, ALL_LETTERS_TR);
     }
+
+    public static String [] generateRandomTexts(Random random, int count, int min, int bound, String sourceText)
+    {
+        String [] str = new String[count];
+
+        for (int i = 0; i < count; ++i)
+            str[i] = generateRandomText(random, random.nextInt(min, bound), sourceText);
+
+        return str;
+    }
+
+    public static String [] generateRandomTextsTR(Random random, int count, int min, int bound)
+    {
+        return generateRandomTexts(random, count, min, bound, ALL_LETTERS_TR);
+    }
+
+    public static String [] generateRandomTextsEN(Random random, int count, int min, int bound)
+    {
+        return generateRandomTexts(random, count, min, bound, ALL_LETTERS_EN);
+    }
+
     public static String getFirstLongestPalindrome(String s)
     {
         String result = "";
