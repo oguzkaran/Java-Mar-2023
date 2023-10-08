@@ -4,7 +4,6 @@ import org.csystem.generator.ObjectArrayGenerator;
 import org.csystem.math.geometry.Point;
 import org.csystem.util.array.ArrayUtil;
 import org.csystem.util.string.StringUtil;
-import org.csystem.wrapper.IntValue;
 
 import java.util.Scanner;
 
@@ -18,31 +17,36 @@ public class ObjectArrayGeneratorDemoApp {
             System.out.println("-----------------------------------------------------------");
             System.out.printf("Type:%s%n", typeStr);
 
-            if (object instanceof String) {
-                String str = (String)object;
-
+            if (object instanceof String str)
                 System.out.printf("str:%s, upper:%s%n", str, str.toUpperCase());
-            }
-            else if (object instanceof IntValue) {
-                IntValue intValue = (IntValue)object;
-                int val = intValue.getValue();
+            else if (object instanceof Integer) {
+                int val = (int)object;
 
                 System.out.printf("%d * %d = %d%n", val, val, val * val);
             }
-            else if (object instanceof Point) {
-                Point point = (Point)object;
+            else if (object instanceof Double) {
+                double val = (double)object;
 
-                System.out.printf("Distance to origin of %s is %f%n", point.toString(), point.distance());
+                System.out.printf("%f + %f = %f%n", val, val, val + val);
             }
-            else if (object instanceof int []) {
-                int [] a = (int [])object;
+            else if (object instanceof Boolean) {
+                boolean flag = (boolean)object;
 
+                System.out.printf("flag = %b%n", flag);
+            }
+
+            else if (object instanceof Character) {
+                char ch = (char)object;
+
+                System.out.printf("ch = %c%n", ch);
+            }
+            else if (object instanceof Point point)
+                System.out.printf("Distance to origin of %s is %f%n", point.toString(), point.distance());
+            else if (object instanceof int [] a) {
                 ArrayUtil.print(a, " ", " -> ");
                 System.out.println(ArrayUtil.sum(a));
             }
-            else if (object instanceof String []) {
-                String [] str = (String[])object;
-
+            else if (object instanceof String [] str) {
                 ArrayUtil.print(str);
                 System.out.println(StringUtil.join(str, '-'));
             }
