@@ -8,7 +8,7 @@ import org.csystem.util.string.StringUtil;
 import java.util.Scanner;
 
 public class ObjectArrayGeneratorDemoApp {
-    //String, IntValue, Point, int [], String []
+    //String, Integer, Boolean, Double, Character, Point, int [], String []
     private static void doForObjects(Object [] objects)
     {
         for (Object object : objects) {
