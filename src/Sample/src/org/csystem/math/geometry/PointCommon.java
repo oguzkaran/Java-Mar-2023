@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: PointCommon.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 17th Sep 2023
+	Last UPDATE	: 14th Oct 2023
 
     Utility friendly class for common operations of
     Point and MutablePoint classes
@@ -11,7 +11,7 @@
 -------------------------------------------------------------*/
 package org.csystem.math.geometry;
 
-class PointCommon {
+final class PointCommon {
     private PointCommon()
     {
     }

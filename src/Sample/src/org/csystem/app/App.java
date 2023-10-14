@@ -1,19 +1,34 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Otomatik kutulama ve otomatik kutu açma Object türüne de yapılabilkmektedir. Aşağıdaki örnekte auto boxing, auto unboxing
-	ve derleyicinin ürettiği yaklaşık kodlar gösterilmiştir
+	Bazı programcılar sınıfların non-static veri elemanları için private olsalar bile bir önek kullanmazlar. Bu durumda
+	sınıfın veri elemanı aynı isimde parametre değişkeni olduğu durumda (ki bu durum çok sık olur) ismin gölgelenmemesi
+	için veri elemanına this referansı ile erişilir. Bizim için bu durum sınıfın private olmayan veri elemanları için de
+	söz konusudur. Aşağıdaki örnekte this kullanımı gereklidir
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
 class App {
 	public static void main(String [] args)
 	{
-		Object oi = 10; //auto boxing: Integer.valueOf(10);
-		Object od = 20.5; //auto boxing: Double.valueOf(20.5);
+		Sample s = new Sample();
 
-		int a = (int)oi; //auto unboxing: ((Integer)oi).intValue();
-		double b = (double)od; //auto unboxing: ((Double)od).doubleValue();
+		s.setVal(10);
 
-		System.out.printf("a = %d, b = %f%n", a, b);
+		int val = s.getVal();
+
+		System.out.printf("value = %d%n", val);
 	}
 }
 
+class Sample {
+	private int val;
+
+	public int getVal()
+	{
+		return val;
+	}
+
+	public void setVal(int val)
+	{
+		this.val = val;
+	}
+}

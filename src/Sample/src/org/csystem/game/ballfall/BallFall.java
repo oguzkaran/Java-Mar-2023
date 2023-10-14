@@ -1,6 +1,6 @@
 package org.csystem.game.ballfall;
 
-public class BallFall {
+public final class BallFall {
 	private String m_pattern;
 
 	private static void fillSpace(int begin, int end, StringBuilder sb)

@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: ThreadUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 23rd Sep 2023
+	Last UPDATE	: 14th Oct 2023
 
 	Utility class for thread operations
 
@@ -11,7 +11,7 @@
 
 package org.csystem.util.thread;
 
-public class ThreadUtil {
+public final class ThreadUtil {
     private ThreadUtil()
     {}
 

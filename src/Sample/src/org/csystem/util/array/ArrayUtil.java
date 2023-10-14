@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 8th Oct 2023
+	Last UPDATE	: 14th Oct 2023
 
 	Utility class for array operations
 
@@ -12,7 +12,7 @@ package org.csystem.util.array;
 
 import java.util.Random;
 
-public class ArrayUtil {
+public final class ArrayUtil {
     private ArrayUtil()
     {}
 

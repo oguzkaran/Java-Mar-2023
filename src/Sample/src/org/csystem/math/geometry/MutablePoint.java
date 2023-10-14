@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: MutablePoint.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 17th Sep 2023
+	Last UPDATE	: 14th Oct 2023
 	
 	MutablePoint class that represents a point in cartesian
 	plane
@@ -11,11 +11,10 @@
 -------------------------------------------------------------*/
 package org.csystem.math.geometry;
 
-import org.csystem.math.geometry.test.PointTest;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 
-import static java.lang.Math.*;
-
-public class MutablePoint {
+public final class MutablePoint {
 	private double m_x;
 	private double m_y;
 

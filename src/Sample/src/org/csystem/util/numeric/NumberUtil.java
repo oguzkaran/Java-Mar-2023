@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 16th Sep 2023
+	Last UPDATE	: 14th Oct 2023
 	
 	Utility class for numeric operations
 	
@@ -12,7 +12,7 @@ package org.csystem.util.numeric;
 
 import static java.lang.Math.*;
 
-public class NumberUtil {
+public final class NumberUtil {
     private static final String [] ONES = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
     private static final String [] TENS = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
 

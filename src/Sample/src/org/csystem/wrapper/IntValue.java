@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: IntValue.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 17th Sep 2023
+	Last UPDATE	: 14th Oct 2023
 
 	Immutable IntValue class that wraps an int value by
 	using cache for [-128, 127]
@@ -11,7 +11,7 @@
 -------------------------------------------------------------*/
 package org.csystem.wrapper;
 
-public class IntValue {
+public final class IntValue {
     private static final int CACHE_MIN_VALUE = -128;
     private static final int CACHE_MAX_VALUE = 127;
     private static final IntValue[] CACHE = new IntValue[CACHE_MAX_VALUE - CACHE_MIN_VALUE + 1];
