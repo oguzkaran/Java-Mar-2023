@@ -1,34 +1,28 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Bazı programcılar sınıfların non-static veri elemanları için private olsalar bile bir önek kullanmazlar. Bu durumda
-	sınıfın veri elemanı aynı isimde parametre değişkeni olduğu durumda (ki bu durum çok sık olur) ismin gölgelenmemesi
-	için veri elemanına this referansı ile erişilir. Bizim için bu durum sınıfın private olmayan veri elemanları için de
-	söz konusudur. Aşağıdaki örnekte this kullanımı gereklidir
+	Yukarıdaki örnek sınıf ismi ile nitelendirilerek yapılabilir
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
 class App {
 	public static void main(String [] args)
 	{
-		Sample s = new Sample();
+		Sample.setX(20);
 
-		s.setVal(10);
-
-		int val = s.getVal();
-
-		System.out.printf("value = %d%n", val);
+		System.out.printf("Sample.x = %d%n", Sample.getX());
 	}
 }
 
 class Sample {
-	private int val;
+	private static int x;
 
-	public int getVal()
+	public static void setX(int x)
 	{
-		return val;
+		Sample.x = x;
 	}
 
-	public void setVal(int val)
+	public static int getX()
 	{
-		this.val = val;
+		return x;
 	}
+
 }
