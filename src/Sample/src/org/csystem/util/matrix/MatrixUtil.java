@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: MatrixUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 14th Oct 2023
+	Last UPDATE	: 15th Oct 2023
 
 	Utility class for matrix operations
 
@@ -84,6 +84,17 @@ public final class MatrixUtil {
     public static void subtractBy(int [][] a, int val)
     {
         ArrayUtil.subtractBy(a, val);
+    }
+
+    public static int sum(int [][] a)
+    {
+        int total = 0;
+
+        for (int[] rows : a)
+            for (int val : rows)
+                total += val;
+
+        return total;
     }
 
     public static int sumDiagonal(int [][] a)
