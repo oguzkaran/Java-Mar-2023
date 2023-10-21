@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 14th Oct 2023
+	Last UPDATE	: 21st Oct 2023
 
 	Utility class for string operations
 
@@ -10,6 +10,7 @@
 -------------------------------------------------------------*/
 package org.csystem.util.string;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public final class StringUtil {
@@ -380,6 +381,21 @@ public final class StringUtil {
             sb.append(s).append(separator);
 
         return sb.substring(0, sb.length() - separator.length());
+    }
+
+    public static String join(ArrayList list, String separator)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        for (Object o : list)
+            sb.append((String)o).append(separator);
+
+        return sb.substring(0, sb.length() - separator.length());
+    }
+
+    public static String join(ArrayList list, char separator)
+    {
+        return join(list, String.valueOf(separator));
     }
 
     public static String padLeading(String s, int len, char ch)
