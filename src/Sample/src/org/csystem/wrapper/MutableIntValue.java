@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: MutableIntValue.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 15th Oct 2023
+	Last UPDATE	: 22nd Oct 2023
 
 	MutableIntValue class that wraps an int value
 
@@ -87,6 +87,11 @@ public final class MutableIntValue {
     public int compareTo(MutableIntValue other)
     {
         return m_value - other.m_value;
+    }
+
+    public boolean equals(Object other)
+    {
+        return other instanceof MutableIntValue val && val.m_value == m_value;
     }
 
     public String toString()

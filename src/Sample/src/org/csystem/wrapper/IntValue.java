@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: IntValue.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 14th Oct 2023
+	Last UPDATE	: 22nd Oct 2023
 
 	Immutable IntValue class that wraps an int value by
 	using cache for [-128, 127]
@@ -10,6 +10,8 @@
 	All Right Free
 -------------------------------------------------------------*/
 package org.csystem.wrapper;
+
+import javax.print.attribute.standard.MediaSize;
 
 public final class IntValue {
     private static final int CACHE_MIN_VALUE = -128;
@@ -111,6 +113,11 @@ public final class IntValue {
     public int compareTo(IntValue other)
     {
         return m_value - other.m_value;
+    }
+
+    public boolean equals(Object other)
+    {
+        return other instanceof IntValue i && i.m_value == m_value;
     }
 
     public String toString()

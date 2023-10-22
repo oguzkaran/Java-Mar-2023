@@ -23,10 +23,12 @@
 
 	+ Sınıfın kesri 1(bir) artıran ve bir azaltan inc ve dec metotları yazılacaktır
 
-	+ Sınıfın toString metodu şu formatta yazı döndürecek şekilde yazılacaktır:
+	+ Sınıfın toString metodu şu formatta yazı döndürecek şekilde override edilecektir:
 	    3 / 10 kesri için -> 3 / 10 = 3.333333
 	    10 / 1 kesri için -> 10
-	 Ondalık kısımda 6 basamak gösterilecektir. Geri kalan basamaklar yuvarlanacaktır
+	 Ondalık kısımda 6 basamak gösterilecektir. Geri kalan basamaklar yuvarlanacaktır,
+
+	+ Sınıfın equals metodu iki kesrin eşitlik karşılaştırması için override edilecektir
 
 	+ Sınıfın default ctor'u "0 / 1" kesrini temsil eden nesneyi yaratmak için kullanılabilecektir
 
@@ -142,6 +144,11 @@
              throw new UnsupportedOperationException("TODO:");
          }
 
+         public boolean equals()
+         {
+            throw new UnsupportedOperationException("TODO:");
+         }
+
          public String toString()
          {
              throw new UnsupportedOperationException("TODO:");
@@ -253,6 +260,11 @@ public class Fraction {
     }
 
     public int compareTo(Fraction other)
+    {
+        throw new UnsupportedOperationException("TODO:");
+    }
+
+    public boolean equals()
     {
         throw new UnsupportedOperationException("TODO:");
     }

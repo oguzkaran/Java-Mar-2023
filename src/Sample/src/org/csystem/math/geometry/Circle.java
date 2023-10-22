@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: Circle.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 10th Sep 2023
+	Last UPDATE	: 22nd Oct 2023
 
 	Circle class that represents a circle
 
@@ -14,6 +14,8 @@ import static java.lang.Math.PI;
 import static java.lang.Math.abs;
 
 public class Circle {
+    protected static final double DELTA = 0.00001;
+
     private double m_radius;
 
     public Circle()
@@ -43,6 +45,11 @@ public class Circle {
     public double getCircumference()
     {
         return 2 * PI * m_radius;
+    }
+
+    public boolean equals(Object other)
+    {
+        return other instanceof Circle c && abs(c.m_radius - m_radius) < DELTA;
     }
 
     public String toString()

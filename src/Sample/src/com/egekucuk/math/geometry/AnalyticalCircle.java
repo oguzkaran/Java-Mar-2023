@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: AnalyticalCircle.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 1st Oct 2023
+	Last UPDATE	: 22nd Oct 2023
 
 	AnalyticalCircle class that represents a circle
 	in cartesian plane
@@ -85,5 +85,13 @@ public class AnalyticalCircle extends Circle {
         return Math.abs(centerDistance(other) - getRadius() - other.getRadius()) < DELTA;
     }
 
-    //...
+    public boolean equals(Object other)
+    {
+        return other instanceof AnalyticalCircle ac && super.equals(ac) && m_center.equals(ac.m_center);
+    }
+
+    public String toString()
+    {
+        return String.format("%s, Center:%s", super.toString(), m_center);
+    }
 }

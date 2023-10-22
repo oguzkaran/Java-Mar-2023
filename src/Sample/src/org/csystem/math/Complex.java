@@ -5,7 +5,7 @@
 /*-------------------------------------------------------------
 	FILE		: Complex.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 10th Sep 2023
+	Last UPDATE	: 22nd Oct 2023
 	
 	Complex class that represents a complex number
 	
@@ -18,6 +18,8 @@ import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 
 public class Complex {
+	private static final double DELTA = 0.000001;
+
 	private double m_real;
 	private double m_imag;
 	
@@ -158,7 +160,12 @@ public class Complex {
 		
 		return abs(m_real - other.m_real) < DELTA && abs(m_imag - other.m_imag) < DELTA;
 	}
-	
+
+	public boolean equals(Object other)
+	{
+		return other instanceof Complex z && abs(m_real - z.m_real) < DELTA && abs(m_imag - z.m_imag) < DELTA;
+	}
+
 	public String toString()
 	{
 		return String.format("(%f, %f)", m_real, m_imag);

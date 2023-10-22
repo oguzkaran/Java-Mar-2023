@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
-	FILE		: IntValue.java
+	FILE		: LongValue.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 14th Oct 2023
+	Last UPDATE	: 22nd Oct 2023
 
 	Immutable LongValue class that wraps a long value by
 	using cache for [-128, 127]
@@ -119,6 +119,11 @@ public final class LongValue {
             return 0;
 
         return 1;
+    }
+
+    public boolean equals(Object other)
+    {
+        return other instanceof LongValue val && val.m_value == m_value;
     }
 
     public String toString()

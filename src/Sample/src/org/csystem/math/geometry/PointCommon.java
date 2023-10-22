@@ -1,3 +1,4 @@
+
 /*-------------------------------------------------------------
 	FILE		: PointCommon.java
 	AUTHOR		: Java-Mar-2023 Group
@@ -14,6 +15,13 @@ package org.csystem.math.geometry;
 final class PointCommon {
     private PointCommon()
     {
+    }
+
+    static final double DELTA = 0.00001;
+
+    static boolean equals(double x1, double y1, double x2, double y2)
+    {
+        return Math.abs(x1 - x2) < DELTA && Math.abs(y1 - y2) < DELTA;
     }
 
     static double distance(double x1, double y1, double x2, double y2)

@@ -56,6 +56,7 @@ public class Card {
       m_type = type;
    }
 
+
    public String getName()
    {
       throw new UnsupportedOperationException("Not implemented yet!...");
@@ -64,6 +65,11 @@ public class Card {
    public void setName(String name)
    {
       throw new UnsupportedOperationException("Not implemented yet!...");
+   }
+
+   public boolean equals(Object other)
+   {
+      return other instanceof Card c && c.m_type == m_type && c.m_value == m_value;
    }
 
    public String toString()
