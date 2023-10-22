@@ -1,20 +1,33 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	printf metodu da (dolayısıyla String sınıfının format metodu da) s format karakteri ile toString metodunu çağırarak
-	formatlama yapar
+	Aşağıdaki örnei inceleyiniz
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
-
-import org.csystem.math.Complex;
-import org.csystem.math.geometry.Point;
 
 class App {
 	public static void main(String [] args)
 	{
-		Point p = Point.createCartesian(100, 200);
-		Complex c = new Complex(3, 4);
+		Sample s1 = new Sample(10);
+		Sample s2 = new Sample(10);
 
-		System.out.printf("Point:%s%n", p);
-		System.out.printf("Complex:%s%n", c);
+		System.out.println(s1.equals(s2) ? "Eşit" : "Eşit değil");
 	}
 }
 
+class Sample {
+	private int m_x;
+
+	public Sample(int x)
+	{
+		m_x = x;
+	}
+
+	public int getX()
+	{
+		return m_x;
+	}
+
+	public boolean equals(Object other)
+	{
+		return other instanceof Sample s && s.m_x == m_x;
+	}
+}
