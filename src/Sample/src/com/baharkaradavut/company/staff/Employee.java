@@ -1,6 +1,6 @@
 package com.baharkaradavut.company.staff;
 
-public abstract class Employee {
+public abstract class Employee implements IEmployee {
     private String m_citizenId;
     private String m_name;
     private String m_address;
@@ -38,6 +38,4 @@ public abstract class Employee {
         //...
         m_address = address;
     }
-
-    public abstract double calculateInsurancePayment();
 }
