@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: MatrixUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 15th Oct 2023
+	Last UPDATE	: 29th Oct 2023
 
 	Utility class for matrix operations
 
@@ -12,7 +12,8 @@ package org.csystem.util.matrix;
 
 import org.csystem.util.array.ArrayUtil;
 
-import java.util.Random;
+import java.util.random.RandomGenerator;
+
 
 public final class MatrixUtil {
     private MatrixUtil()
@@ -35,18 +36,18 @@ public final class MatrixUtil {
         ArrayUtil.addBy(a, val);
     }
 
-    public static int [][] generateRandomMatrix(Random random, int row, int col, int min, int bound)
+    public static int [][] generateRandomMatrix(RandomGenerator randomGenerator, int row, int col, int min, int bound)
     {
         int [][] matrix = new int[row][col];
 
-        ArrayUtil.fillRandomArray(random, matrix, min, bound);
+        ArrayUtil.fillRandomArray(randomGenerator, matrix, min, bound);
 
         return matrix;
     }
 
-    public static int [][] generateRandomSquareMatrix(Random random, int n, int min, int bound)
+    public static int [][] generateRandomSquareMatrix(RandomGenerator randomGenerator, int n, int min, int bound)
     {
-        return generateRandomMatrix(random, n, n, min, bound);
+        return generateRandomMatrix(randomGenerator, n, n, min, bound);
     }
 
     public static boolean isMatrix(int [][] a)

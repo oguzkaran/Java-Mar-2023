@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 14th Oct 2023
+	Last UPDATE	: 29th Oct 2023
 
 	Utility class for array operations
 
@@ -10,7 +10,8 @@
 -------------------------------------------------------------*/
 package org.csystem.util.array;
 
-import java.util.Random;
+
+import java.util.random.RandomGenerator;
 
 public final class ArrayUtil {
     private ArrayUtil()
@@ -103,24 +104,24 @@ public final class ArrayUtil {
         }
     }
 
-    public static void fillRandomArray(Random random, int [][] a, int min, int bound)
+    public static void fillRandomArray(RandomGenerator randomGenerator, int [][] a, int min, int bound)
     {
         for (int i = 0; i < a.length; ++i)
             for (int k = 0; k < a[i].length; ++k)
-                a[i][k] = random.nextInt(min, bound);
+                a[i][k] = randomGenerator.nextInt(min, bound);
     }
 
-    public static void fillRandomArray(Random random, int [] a, int min, int bound)
+    public static void fillRandomArray(RandomGenerator randomGenerator, int [] a, int min, int bound)
     {
         for (int i = 0; i < a.length; ++i)
-            a[i] = random.nextInt(min, bound);
+            a[i] = randomGenerator.nextInt(min, bound);
     }
 
-    public static int [] generateRandomArray(Random random, int count, int min, int bound)
+    public static int [] generateRandomArray(RandomGenerator randomGenerator, int count, int min, int bound)
     {
         int [] a = new int[count];
 
-        fillRandomArray(random, a, min, bound);
+        fillRandomArray(randomGenerator, a, min, bound);
 
         return a;
     }

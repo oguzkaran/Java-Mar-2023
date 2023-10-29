@@ -5,22 +5,23 @@ import org.csystem.util.array.ArrayUtil;
 import org.csystem.util.string.StringUtil;
 
 import java.util.Random;
+import java.util.random.RandomGenerator;
 
 public class ObjectArrayGenerator {
-    private final Random m_random = new Random();
+    private final RandomGenerator m_randomGenerator = new Random();
 
     //String, Integer, Boolean, Double, Character, Point, int [], String []
     private Object createObject()
     {
-        return switch (m_random.nextInt(8)) {
-            case 0 -> StringUtil.generateRandomTextTR(m_random, m_random.nextInt(5, 11));
-            case 1 -> m_random.nextInt(-128, 127);
-            case 2 -> m_random.nextBoolean();
-            case 3 -> (double) m_random.nextInt(-10, 10);
-            case 4 -> (char)(m_random.nextInt(26) + (m_random.nextBoolean() ? 'A' : 'a'));
-            case 5 -> Point.createCartesian(m_random.nextDouble(-100, 100), m_random.nextDouble(-100, 100));
-            case 6 -> ArrayUtil.generateRandomArray(m_random, m_random.nextInt(5, 20), 0, 100);
-            default -> StringUtil.generateRandomTextsTR(m_random, m_random.nextInt(5, 8), 5, 11);
+        return switch (m_randomGenerator.nextInt(8)) {
+            case 0 -> StringUtil.generateRandomTextTR(m_randomGenerator, m_randomGenerator.nextInt(5, 11));
+            case 1 -> m_randomGenerator.nextInt(-128, 127);
+            case 2 -> m_randomGenerator.nextBoolean();
+            case 3 -> (double) m_randomGenerator.nextInt(-10, 10);
+            case 4 -> (char)(m_randomGenerator.nextInt(26) + (m_randomGenerator.nextBoolean() ? 'A' : 'a'));
+            case 5 -> Point.createCartesian(m_randomGenerator.nextDouble(-100, 100), m_randomGenerator.nextDouble(-100, 100));
+            case 6 -> ArrayUtil.generateRandomArray(m_randomGenerator, m_randomGenerator.nextInt(5, 20), 0, 100);
+            default -> StringUtil.generateRandomTextsTR(m_randomGenerator, m_randomGenerator.nextInt(5, 8), 5, 11);
         };
     }
 
