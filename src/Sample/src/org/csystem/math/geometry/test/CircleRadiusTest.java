@@ -1,6 +1,7 @@
 package org.csystem.math.geometry.test;
 
 import org.csystem.math.geometry.Circle;
+import org.csystem.util.console.Console;
 
 import java.util.Random;
 
@@ -10,13 +11,18 @@ public class CircleRadiusTest {
         Random random = new Random();
 
         while (true) {
-            double radius = random.nextDouble(-5.56, 6);
-            Circle c = new Circle(radius);
+            try {
+                double radius = random.nextDouble(-5.56, 6);
+                Circle c = new Circle(radius);
 
-            System.out.printf("Generated radius:%f, Circle:%s%n", radius, c.toString());
+                Console.writeLine("Generated radius:%f, Circle:%s", radius, c.toString());
 
-            if (Math.abs(radius) <= 0.001)
-                break;
+                if (Math.abs(radius) <= 0.001)
+                    break;
+            }
+            catch (IllegalArgumentException ex) {
+                Console.writeLine("Message:%s", ex.getMessage());
+            }
         }
     }
 

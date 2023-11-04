@@ -7,7 +7,7 @@
 
         - Sınıfın public bölümünü değiştirmeden istediğiniz eklemeyi yapabilirsiniz
 
-        - Sınıf geçersiz zaman durumunu kontrol edecektir. Geçersizlik durumunda program sonlandırılacaktır
+        - Sınıf geçersiz zaman durumunu kontrol edecektir. Geçersizlik durumunda exception fırlatılacaktır
 
         - Zamana ilişkin sınırlar şu şekildedir:
             saat        -> [0, 23]

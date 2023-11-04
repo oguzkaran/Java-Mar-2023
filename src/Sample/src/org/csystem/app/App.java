@@ -1,7 +1,5 @@
 /*-----------------------------------------------------------------------------------------------------------------------
-	Bütün bu anlatılanlara göre aşağıdaki iki soru tipik olarak sorulabilir:
-	1. Programcı bir exception sınıfının ne zaman yazacaktır yani yazıp yazmacağına nasıl karar verecektir?
-	2. Programcı bir exception yazacaksa, sınıfın checked veya unchecked yapacağına nasıl karar verecektir?
+	Try With Resources Statement:
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 

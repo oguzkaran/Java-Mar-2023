@@ -5,8 +5,8 @@
 
 	+ Sınıfın ilgili set ve get metotları yazılacaktır
 
-	+ Pay'ın sıfırdan farklı, paydanın sıfır olması durumunda tanımsızlığa ilişkin bir mesaj verilecektir, pay ve paydanın
-	her ikisinin birden sıfır olması durumunda belirsizliğe ilişkin mesajla birlikte program sonlandırılacaktır
+	+ Pay'ın sıfırdan farklı, paydanın sıfır olması durumunda tanımsızlık ve belirsizliğe ilişkin uygun mesajı içeren
+	IllegalArgumentException fırlatılacaktır
 
 	+ Kesir her durumda sadeleşmiş bir biçimde tutulacaktır. Örneğin kesrin pay ve paydası sırasıyla 4 ve 18 olarak
 	verildiğinde kesir 2 / 9 olarak tutulacaktır.

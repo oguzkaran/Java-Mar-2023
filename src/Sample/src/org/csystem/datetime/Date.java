@@ -7,7 +7,7 @@
 
         - Sınıfın public bölümünü değiştirmeden istediğiniz eklemeyi yapabilirsiniz
 
-        - Sınıf geçersiz tarih durumunu kontrol edecektir. Geçersizlik durumunda program sonlandırılacaktır
+        - Sınıf geçersiz tarih durumunu kontrol edecektir. Geçersizlik durumunda exception fırlatılacaktır
 
         - Sınıf DayOfWeek ve Month enum class'larını kullanmaktadır. enum class'ların sabitlerini değiştirmeden istediğiniz
         eklemeyi yapabilirsiniz"
