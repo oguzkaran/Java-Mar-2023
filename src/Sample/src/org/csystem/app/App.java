@@ -1,5 +1,7 @@
 /*-----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki mülakat sorusunu inceleyiniz
+	Bütün bu anlatılanlara göre aşağıdaki iki soru tipik olarak sorulabilir:
+	1. Programcı bir exception sınıfının ne zaman yazacaktır yani yazıp yazmacağına nasıl karar verecektir?
+	2. Programcı bir exception yazacaksa, sınıfın checked veya unchecked yapacağına nasıl karar verecektir?
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -8,10 +10,83 @@ import org.csystem.util.console.Console;
 class App {
 	public static void main(String [] args)
 	{
-		int a = Console.readInt("Birinci sayıyı giriniz:", "Hatalı giriş yaptınız!...");
-		int b = Console.readInt("İkinci sayıyı giriniz:", "Hatalı giriş yaptınız!...");
 
-		System.out.printf("%d + %d = %d%n", a, b, a + b);
 	}
 }
 
+class Sample {
+	public static void doWork(int a) throws OurException
+	{
+		if (a % 2 == 0)
+			throw new OurException();
+
+		Console.writeLine("a = %d", a);
+	}
+}
+
+class D implements IX {
+	public void foo(int a) throws OurException
+	{
+		Sample.doWork(a);
+		//...
+	}
+}
+
+class C implements IX {
+	public void foo(int a) throws TheirException
+	{
+		//...
+	}
+}
+
+class B implements IX {
+	public void foo(int a) throws  MyException
+	{
+		//...
+	}
+}
+
+class A implements IX {
+	public void foo(int a)
+	{
+		//...
+	}
+}
+
+interface IX {
+	void foo(int a) throws Exception;
+ }
+
+ class WrapperException extends RuntimeException {
+	public WrapperException(String message)
+	{
+		this(message, null);
+	}
+
+	public WrapperException(String message, Throwable cause)
+	{
+		 super(message, cause);
+	}
+
+	public String getMessage()
+	{
+		Throwable cause = getCause();
+		return String.format("Message: %s%s", super.getMessage(), cause != null ? ", Cause Message:" + cause.getMessage() : "");
+	}
+ }
+
+class MyException extends Exception {
+	//...
+}
+
+class YourException extends Exception {
+	//...
+}
+
+class TheirException extends MyException {
+	//...
+}
+
+class OurException extends Exception {
+	//...
+}
