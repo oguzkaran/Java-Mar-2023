@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: Console.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 4th Nov 2023
+	Last UPDATE	: 5th Nov 2023
 
 	Utility class for standart input and output operations
 
@@ -13,7 +13,11 @@ package org.csystem.util.console;
 import java.util.Scanner;
 
 public final class Console {
-    private static final Scanner KB = new Scanner(System.in);
+    private static final Scanner KB;
+
+    static {
+        KB = new Scanner(System.in);
+    }
 
     private Console()
     {
@@ -92,6 +96,18 @@ public final class Console {
         }
     }
 
+    public static String readString()
+    {
+        return readString("");
+    }
+
+    public static String readString(String prompt)
+    {
+        write(prompt);
+
+        return KB.nextLine();
+    }
+
     public static void write(String format, Object...args)
     {
         System.out.printf(format, args);
@@ -103,6 +119,22 @@ public final class Console {
     }
 
     public static void writeLine()
+    {
+        write("\n");
+    }
+
+
+    public static void writeErr(String format, Object...args)
+    {
+        System.err.printf(format, args);
+    }
+
+    public static void writeErrLine(String format, Object...args)
+    {
+        write(format + "\n", args);
+    }
+
+    public static void writeErrLine()
     {
         write("\n");
     }
