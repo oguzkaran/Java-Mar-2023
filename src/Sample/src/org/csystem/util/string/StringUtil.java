@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 5th Nov 2023
+	Last UPDATE	: 8th Nov 2023
 
 	Utility class for string operations
 
@@ -392,17 +392,17 @@ public final class StringUtil {
         return sb.substring(0, sb.length() - separator.length());
     }
 
-    public static String join(ArrayList list, String separator)
+    public static String join(ArrayList<String> list, String separator)
     {
         StringBuilder sb = new StringBuilder();
 
-        for (Object o : list)
-            sb.append((String)o).append(separator);
+        for (String s : list)
+            sb.append(s).append(separator);
 
         return sb.substring(0, sb.length() - separator.length());
     }
 
-    public static String join(ArrayList list, char separator)
+    public static String join(ArrayList<String> list, char separator)
     {
         return join(list, String.valueOf(separator));
     }

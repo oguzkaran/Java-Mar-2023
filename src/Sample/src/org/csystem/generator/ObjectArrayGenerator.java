@@ -4,6 +4,7 @@ import org.csystem.math.geometry.Point;
 import org.csystem.util.array.ArrayUtil;
 import org.csystem.util.string.StringUtil;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
@@ -31,6 +32,22 @@ public class ObjectArrayGenerator {
 
         for (int i = 0; i < count; ++i)
             objects[i] =  createObject();
+
+        return objects;
+    }
+
+    public ArrayList<Object> createUntilZero()
+    {
+        ArrayList<Object> objects = new ArrayList<>();
+
+        while (true) {
+            Object o = createObject();
+
+            if (o instanceof Integer val && val == 0)
+                break;
+
+            objects.add(o);
+        }
 
         return objects;
     }

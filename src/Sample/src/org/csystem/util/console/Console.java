@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------
 	FILE		: Console.java
 	AUTHOR		: Java-Mar-2023 Group
-	Last UPDATE	: 5th Nov 2023
+	Last UPDATE	: 8th Nov 2023
 
 	Utility class for standart input and output operations
 
@@ -108,6 +108,12 @@ public final class Console {
         return KB.nextLine();
     }
 
+    public static void write(Object o)
+    {
+        System.out.print(o);
+    }
+
+
     public static void write(String format, Object...args)
     {
         System.out.printf(format, args);
@@ -122,7 +128,10 @@ public final class Console {
     {
         write("\n");
     }
-
+    public static void writeLine(Object o)
+    {
+        write(o + "\n");
+    }
 
     public static void writeErr(String format, Object...args)
     {
